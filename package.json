@@ -7,7 +7,7 @@
     "@babel/eslint-parser": "7.x",
     "@babel/plugin-syntax-jsx": "7.x",
     "@babel/preset-react": "7.x",
-    "@reduxjs/toolkit": "^1.5.1",
+    "@reduxjs/toolkit": "^1.6.2",
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.3.2",
     "@testing-library/user-event": "^7.1.2",
