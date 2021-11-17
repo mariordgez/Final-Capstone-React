@@ -1,4 +1,7 @@
-export const initIndexes = (cars) => {
+export const initIndexes = (cars, one = false) => {
+  if (one) {
+    return [0];
+  }
   if (cars.length >= 3) {
     return [0, 1, 2];
   }
