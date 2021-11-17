@@ -1,3 +1,20 @@
+.pageheader {
+  margin: 4.5rem 0;
+  text-align: center;
+}
+
+.pageheader h1 {
+  text-transform: uppercase;
+  font-size: 2rem;
+  font-weight: bolder;
+}
+
+.pageheader h3 {
+  text-transform: none;
+  font-size: 1.5rem;
+  color: #c9c9c9;
+}
+
 .card {
   margin: auto;
   text-align: center;
@@ -28,6 +45,7 @@
   margin: 0;
   font-size: 1.3rem;
   color: black;
+  font-weight: bold;
 }
 
 .hr {
@@ -38,7 +56,7 @@
 
 .desc {
   margin: auto;
-  width: 25%;
+  max-width: 15rem;
   color: #464646;
 }
 

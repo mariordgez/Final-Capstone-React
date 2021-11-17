@@ -1,36 +1,43 @@
 import React from 'react';
-import PropTypes from 'prop-types';
+import { useDispatch, useSelector } from 'react-redux';
+import { updateIndexes } from '../../redux/homepage/carListSlice';
 import CarCard from './CarCard';
-// import style from './HomePage.module.css';
+import { shiftRow, unshiftRow } from './indexes';
 
-const CarouselWide = (props) => {
-  const { cars } = props;
-  const mapCars = cars.map(
-    (car, index) => (
+const CarouselWide = () => {
+  const { status, cars, indexes } = useSelector((state) => state.carList);
+  const dispatch = useDispatch();
+
+  const mapCars = indexes.map(
+    (index) => (
       <CarCard
-        key={car.id}
-        index={index}
-        id={car.id}
-        name={car.name}
-        model={car.model}
-        brand={car.brand}
-        imageUrl={car.image_url}
+        key={cars[index].id}
+        id={cars[index].id}
+        name={cars[index].name}
+        model={cars[index].model}
+        brand={cars[index].brand}
+        imageUrl={cars[index].image_url}
       />
     ),
   );
+
+  const next = () => {
+    const newIndexes = shiftRow(indexes, cars);
+    dispatch(updateIndexes(newIndexes));
+  };
+
+  const prev = () => {
+    const newIndexes = unshiftRow(indexes, cars);
+    dispatch(updateIndexes(newIndexes));
+  };
+
   return (
-    <div>
-      {mapCars}
+    <div className="d-flex">
+      <button type="button" onClick={prev}>Prev</button>
+      {status === 'ready' ? mapCars : ''}
+      <button type="button" onClick={next}>Next</button>
     </div>
   );
-};
-
-CarouselWide.propTypes = {
-  cars: PropTypes.arrayOf(PropTypes.shape()),
-};
-
-CarouselWide.defaultProps = {
-  cars: [],
 };
 
 export default CarouselWide;
