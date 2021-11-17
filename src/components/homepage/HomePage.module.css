@@ -1,0 +1,52 @@
+.card {
+  margin: auto;
+  text-align: center;
+}
+
+.card a {
+  text-decoration: none;
+  color: white;
+}
+
+.bgimage {
+  margin: auto;
+  background-color: #98bf11;
+  max-width: 15rem;
+  height: 15rem;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  border-radius: 120%;
+  box-shadow: 0 0 0.5rem 0.5rem #c9c9c9;
+}
+
+.info {
+  margin: 2.5rem 0;
+}
+
+.info h2 {
+  margin: 0;
+  font-size: 1.3rem;
+  color: black;
+}
+
+.hr {
+  max-width: 15rem;
+  margin: 1.5rem auto;
+  border-bottom: 0.2rem  dotted #c9c9c9;
+}
+
+.desc {
+  margin: auto;
+  width: 25%;
+  color: #464646;
+}
+
+.detailsbtn {
+  padding: 0.5rem 1.5rem;
+  border: none;
+  border-radius: 1rem;
+  background-color: #98bf11;
+  color: white;
+  font-weight: bold;
+}

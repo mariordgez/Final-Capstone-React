@@ -14,7 +14,7 @@ const HomePage = () => {
   }, [status]);
 
   return (
-    <section className="w-50 m-auto">
+    <section className="container">
       <Carousel cars={cars} />
     </section>
   );

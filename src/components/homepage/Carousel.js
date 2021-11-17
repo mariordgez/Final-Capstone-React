@@ -1,38 +1,36 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import CarCard from './CarCard';
+// import style from './HomePage.module.css';
 
-const Carousel = (props) => {
+const CarouselWide = (props) => {
   const { cars } = props;
   const mapCars = cars.map(
     (car, index) => (
-      <div key={car.id} className={index > 0 ? 'carousel-item' : 'carousel-item active'}>
-        <img src={car.image_url} className="d-block w-100" alt={car.model} />
-      </div>
+      <CarCard
+        key={car.id}
+        index={index}
+        id={car.id}
+        name={car.name}
+        model={car.model}
+        brand={car.brand}
+        imageUrl={car.image_url}
+      />
     ),
   );
   return (
-    <div id="carsCarousel" className="carousel slide" data-bs-ride="carousel">
-      <div className="carousel-inner">
-        {mapCars}
-      </div>
-      <button className="carousel-control-prev" type="button" data-bs-target="#carsCarousel" data-bs-slide="prev">
-        <span className="carousel-control-prev-icon" aria-hidden="true" />
-        <span className="visually-hidden">Previous</span>
-      </button>
-      <button className="carousel-control-next" type="button" data-bs-target="#carsCarousel" data-bs-slide="next">
-        <span className="carousel-control-next-icon" aria-hidden="true" />
-        <span className="visually-hidden">Next</span>
-      </button>
+    <div>
+      {mapCars}
     </div>
   );
 };
 
-Carousel.propTypes = {
+CarouselWide.propTypes = {
   cars: PropTypes.arrayOf(PropTypes.shape()),
 };
 
-Carousel.defaultProps = {
+CarouselWide.defaultProps = {
   cars: [],
 };
 
-export default Carousel;
+export default CarouselWide;
