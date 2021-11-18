@@ -1,15 +1,16 @@
 export const initIndexes = (cars, one = false) => {
-  if (cars.length < 1) {
+  const filteredCars = cars.filter((car) => car.removed === false);
+  if (filteredCars.length < 1) {
     return [];
   }
   if (one) {
     return [0];
   }
-  if (cars.length >= 3) {
+  if (filteredCars.length >= 3) {
     return [0, 1, 2];
   }
   const indexes = [];
-  cars.forEach((_, index) => {
+  filteredCars.forEach((_, index) => {
     indexes.push(index);
   });
   return indexes;
