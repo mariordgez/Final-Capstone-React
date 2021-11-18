@@ -6,6 +6,7 @@ const initialState = {
   status: 'default',
   cars: [],
   indexes: [],
+  delay: true,
 };
 
 const fetchAPI = async () => {
@@ -35,15 +36,29 @@ const carListSlice = createSlice({
         status: state.status,
         cars: state.cars,
         indexes: action.payload,
+        delay: state.delay,
+      }
+    ),
+    delayShow: (state, action) => (
+      {
+        status: state.status,
+        cars: state.cars,
+        indexes: state.indexes,
+        delay: action.payload,
       }
     ),
   },
   extraReducers: (builder) => {
     builder.addCase(fetchCarList.fulfilled, (state, action) => (
-      { status: 'ready', cars: [...state.cars, ...action.payload], indexes: state.indexes }
+      {
+        status: 'ready',
+        cars: [...state.cars, ...action.payload],
+        indexes: state.indexes,
+        delay: state.delay,
+      }
     ));
   },
 });
 
-export const { updateIndexes } = carListSlice.actions;
+export const { updateIndexes, delayShow } = carListSlice.actions;
 export default carListSlice;

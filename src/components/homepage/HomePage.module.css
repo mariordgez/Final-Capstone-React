@@ -21,6 +21,18 @@
   justify-content: space-around;
 }
 
+.cardscon {
+  display: flex;
+  width: 100%;
+  justify-content: space-around;
+  opacity: 0;
+}
+
+.cardsconshow {
+  opacity: 1;
+  transition: all 0.35s ease-in;
+}
+
 .prevbtn {
   margin-bottom: 15rem;
   padding: 0.75rem 0.4rem;
@@ -50,13 +62,7 @@
 }
 
 .card {
-  opacity: 0;
   text-align: center;
-  transition: all 0.5s ease-in;
-}
-
-.cardson {
-  opacity: 1;
 }
 
 .card a {

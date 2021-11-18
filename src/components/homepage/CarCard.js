@@ -17,7 +17,7 @@ const CarCard = (props) => {
   };
 
   return (
-    <article className={false ? style.card : `${style.card} ${style.cardson}`}>
+    <article className={style.card}>
       <NavLink to={`/cars/${id}`}>
         <div style={image} className={style.bgimage} />
       </NavLink>
