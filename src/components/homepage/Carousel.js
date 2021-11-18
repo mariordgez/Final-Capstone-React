@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { delayShow, updateIndexes } from '../../redux/homepage/carListSlice';
 import CarCard from './CarCard';
@@ -8,12 +8,22 @@ import NextSVG from '../../svgs/NextSVG';
 import PrevSVG from '../../svgs/PrevSVG';
 
 const CarouselWide = () => {
+  const dispatch = useDispatch();
+
   const {
     cars,
     indexes,
     delay,
   } = useSelector((state) => state.carList);
-  const dispatch = useDispatch();
+
+  const transition = () => {
+    dispatch(delayShow(true));
+    setTimeout(() => dispatch(delayShow(false)), 200);
+  };
+
+  useEffect(() => {
+    transition();
+  }, []);
 
   const mapCars = indexes.map(
     (index) => (
@@ -27,11 +37,6 @@ const CarouselWide = () => {
       />
     ),
   );
-
-  const transition = () => {
-    dispatch(delayShow(true));
-    setTimeout(() => dispatch(delayShow(false)), 200);
-  };
 
   const next = () => {
     transition();

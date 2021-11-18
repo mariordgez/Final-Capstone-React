@@ -1,5 +1,5 @@
 .pageheader {
-  margin: 4.5rem auto;
+  margin: 4.5rem auto 0 auto;
   text-align: center;
 }
 
@@ -13,6 +13,12 @@
   text-transform: none;
   font-size: 1rem;
   color: var(--silver);
+}
+
+.pageheader div {
+  margin: 3rem auto;
+  width: 15vw;
+  border-bottom: 0.2rem  dotted var(--silver);
 }
 
 .carousel {
@@ -56,8 +62,8 @@
 
 .nextsvg,
 .prevsvg {
-  width: 40px;
-  height: 40px;
+  width: 20px;
+  height: 20px;
   fill: var(--dark-gray);
 }
 
@@ -115,12 +121,20 @@
 
 .detailsbtn {
   margin-top: 1rem;
-  padding: 0.5rem 1.5rem;
+  padding: 0.75rem 1.5rem;
   border: none;
   border-radius: 1rem;
   background-color: var(--apple-green);
   color: white;
   font-weight: bold;
+}
+
+@media screen and (min-width: 350px) {
+  .nextsvg,
+  .prevsvg {
+    width: 40px;
+    height: 40px;
+  }
 }
 
 @media screen and (min-width: 1200px) {
@@ -132,7 +146,7 @@
 
   .pageheader h3 {
     text-transform: none;
-    font-size: 1.5rem;
+    font-size: 1.25rem;
     color: var(--silver);
   }
 

@@ -28,6 +28,7 @@ const HomePage = () => {
       <div className={style.pageheader}>
         <h1>Latest Car Models</h1>
         <h3>Please select a car model</h3>
+        <div />
       </div>
       <Carousel />
     </main>
