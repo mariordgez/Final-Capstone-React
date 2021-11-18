@@ -1,3 +1,9 @@
+:root {
+  --apple-green: #98bf11;
+  --dark-gray: #464646;
+  --silver: #c9c9c9;
+}
+
 body {
   margin: 0;
   padding: 0;
