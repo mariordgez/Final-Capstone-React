@@ -1,0 +1,31 @@
+.detailContainer {
+  background-color: blueviolet;
+  display: grid;
+  grid-template-areas:
+    "imgdisplay imgdisplay detail"
+    "imgdisplay imgdisplay detail"
+    "imgdisplay imgdisplay detail"
+    "imgdisplay imgdisplay detail"
+    "back back reserve";
+  grid-gap: 10px;
+  margin: 0;
+  padding: 0;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 100px;
+  right: 0;
+}
+
+.imgdisplay {
+  grid-area: imgdisplay;
+}
+.detail {
+  grid-area: detail;
+}
+.back {
+  grid-area: back;
+}
+.reserve {
+  grid-area: reserve;
+}
