@@ -1,4 +1,7 @@
 export const initIndexes = (cars, one = false) => {
+  if (cars.length < 1) {
+    return [];
+  }
   if (one) {
     return [0];
   }

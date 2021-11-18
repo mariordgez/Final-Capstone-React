@@ -3,9 +3,12 @@ import { useDispatch, useSelector } from 'react-redux';
 import { updateIndexes } from '../../redux/homepage/carListSlice';
 import CarCard from './CarCard';
 import { shiftRow, unshiftRow } from './indexes';
+import style from './HomePage.module.css';
+import NextSVG from '../../svgs/NextSVG';
+import PrevSVG from '../../svgs/PrevSVG';
 
 const CarouselWide = () => {
-  const { status, cars, indexes } = useSelector((state) => state.carList);
+  const { cars, indexes } = useSelector((state) => state.carList);
   const dispatch = useDispatch();
 
   const mapCars = indexes.map(
@@ -32,10 +35,14 @@ const CarouselWide = () => {
   };
 
   return (
-    <div className="d-flex">
-      <button type="button" onClick={prev}>Prev</button>
-      {status === 'ready' ? mapCars : ''}
-      <button type="button" onClick={next}>Next</button>
+    <div className={style.carousel}>
+      <button type="button" className={style.prevbtn} onClick={prev}>
+        <PrevSVG style={style} />
+      </button>
+      {cars.length >= 1 ? mapCars : ''}
+      <button type="button" className={style.nextbtn} onClick={next}>
+        <NextSVG style={style} />
+      </button>
     </div>
   );
 };

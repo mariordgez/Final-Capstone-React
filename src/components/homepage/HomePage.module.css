@@ -1,22 +1,55 @@
 .pageheader {
-  margin: 4.5rem 0;
+  margin: 4.5rem auto;
   text-align: center;
 }
 
 .pageheader h1 {
   text-transform: uppercase;
-  font-size: 2rem;
+  font-size: 1.25rem;
   font-weight: bolder;
 }
 
 .pageheader h3 {
   text-transform: none;
-  font-size: 1.5rem;
+  font-size: 1rem;
   color: #c9c9c9;
 }
 
+.carousel {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.prevbtn {
+  margin-bottom: 15rem;
+  padding: 0.75rem 0.4rem;
+  align-items: center;
+  border: none;
+  border-top-right-radius: 1.5rem;
+  border-bottom-right-radius: 1.5rem;
+  background-color: transparent;
+  color: white;
+}
+
+.nextbtn {
+  margin-bottom: 15rem;
+  padding: 0.75rem 0.4rem;
+  border: none;
+  border-start-start-radius: 1.5rem;
+  border-end-start-radius: 1.5rem;
+  background-color: transparent;
+  color: white;
+}
+
+.nextsvg,
+.prevsvg {
+  width: 40px;
+  height: 40px;
+  fill: #464646;
+}
+
 .card {
-  margin: auto;
   text-align: center;
 }
 
@@ -25,15 +58,19 @@
   color: white;
 }
 
+.card p {
+  margin: 0;
+}
+
 .bgimage {
   margin: auto;
   background-color: #98bf11;
-  max-width: 15rem;
-  height: 15rem;
+  max-width: 12rem;
+  height: 12rem;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  border-radius: 120%;
+  border-radius: 2rem;
   box-shadow: 0 0 0.5rem 0.5rem #c9c9c9;
 }
 
@@ -50,7 +87,7 @@
 
 .hr {
   max-width: 15rem;
-  margin: 1.5rem auto;
+  margin: 1rem auto;
   border-bottom: 0.2rem  dotted #c9c9c9;
 }
 
@@ -60,11 +97,57 @@
   color: #464646;
 }
 
+.desc p {
+  font-size: 0.75rem;
+}
+
 .detailsbtn {
+  margin-top: 1rem;
   padding: 0.5rem 1.5rem;
   border: none;
   border-radius: 1rem;
   background-color: #98bf11;
   color: white;
   font-weight: bold;
+}
+
+@media screen and (min-width: 1200px) {
+  .pageheader h1 {
+    text-transform: uppercase;
+    font-size: 2rem;
+    font-weight: bolder;
+  }
+
+  .pageheader h3 {
+    text-transform: none;
+    font-size: 1.5rem;
+    color: #c9c9c9;
+  }
+
+  .carousel {
+    justify-content: space-between;
+  }
+
+  .prevbtn {
+    margin-bottom: 5rem;
+    padding: 1rem 1rem 1rem 2.5rem;
+    background-color: #c9c9c9;
+  }
+
+  .nextbtn {
+    margin-bottom: 5rem;
+    padding: 1rem 2.5rem 1rem 1rem;
+    background-color: #98bf11;
+  }
+
+  .nextsvg,
+  .prevsvg {
+    width: 24px;
+    height: 24px;
+    fill: white;
+  }
+
+  .desc p {
+    font-size: 1rem;
+  }
 }
