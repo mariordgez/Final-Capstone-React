@@ -12,7 +12,7 @@
 .pageheader h3 {
   text-transform: none;
   font-size: 1rem;
-  color: #c9c9c9;
+  color: var(--silver);
 }
 
 .carousel {
@@ -46,11 +46,17 @@
 .prevsvg {
   width: 40px;
   height: 40px;
-  fill: #464646;
+  fill: var(--dark-gray);
 }
 
 .card {
+  opacity: 0;
   text-align: center;
+  transition: all 0.5s ease-in;
+}
+
+.cardson {
+  opacity: 1;
 }
 
 .card a {
@@ -64,14 +70,14 @@
 
 .bgimage {
   margin: auto;
-  background-color: #98bf11;
+  background-color: var(--apple-green);
   max-width: 12rem;
   height: 12rem;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
   border-radius: 2rem;
-  box-shadow: 0 0 0.5rem 0.5rem #c9c9c9;
+  box-shadow: 0 0 0.5rem 0.5rem var(--silver);
 }
 
 .info {
@@ -88,7 +94,7 @@
 .hr {
   max-width: 15rem;
   margin: 1rem auto;
-  border-bottom: 0.2rem  dotted #c9c9c9;
+  border-bottom: 0.2rem  dotted var(--silver);
 }
 
 .desc {
@@ -106,7 +112,7 @@
   padding: 0.5rem 1.5rem;
   border: none;
   border-radius: 1rem;
-  background-color: #98bf11;
+  background-color: var(--apple-green);
   color: white;
   font-weight: bold;
 }
@@ -121,7 +127,7 @@
   .pageheader h3 {
     text-transform: none;
     font-size: 1.5rem;
-    color: #c9c9c9;
+    color: var(--silver);
   }
 
   .carousel {
@@ -131,13 +137,13 @@
   .prevbtn {
     margin-bottom: 5rem;
     padding: 1rem 1rem 1rem 2.5rem;
-    background-color: #c9c9c9;
+    background-color: var(--silver);
   }
 
   .nextbtn {
     margin-bottom: 5rem;
     padding: 1rem 2.5rem 1rem 1rem;
-    background-color: #98bf11;
+    background-color: var(--apple-green);
   }
 
   .nextsvg,
