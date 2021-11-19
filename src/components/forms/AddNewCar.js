@@ -42,8 +42,18 @@ const AddNewCar = () => {
   return (
     <div>
       <div className={style.glassContainer} />
-      <div className={response === '' ? '' : style.message}>
-        <span>{renderresponse()}</span>
+      <div className={
+        `${style.message} ${response === '' ? '' : style.messageOn}`
+      }
+      >
+        <span className={
+          Array.isArray(response)
+            ? style.unsuccessfull
+            : style.successfull
+          }
+        >
+          {renderresponse()}
+        </span>
       </div>
       <div className={style.formContainer}>
         <button
