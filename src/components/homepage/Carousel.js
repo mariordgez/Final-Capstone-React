@@ -1,11 +1,11 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { delayShow, updateIndexes } from '../../redux/car_list/carListSlice';
-import CarCard from './CarCard';
 import { shiftRow, unshiftRow } from './indexes';
-import style from './HomePage.module.css';
+import CarCard from './CarCard';
 import NextSVG from '../../svgs/NextSVG';
 import PrevSVG from '../../svgs/PrevSVG';
+import style from './HomePage.module.css';
 
 const CarouselWide = () => {
   const dispatch = useDispatch();

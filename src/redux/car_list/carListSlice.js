@@ -1,6 +1,7 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 
 const FETCH_CAR_LIST = 'cars/fetchCarList';
+const UPDATE_FETCH_CAR_LIST = 'cars/updateFetchCarList';
 
 const initialState = {
   status: 'default',
@@ -11,20 +12,20 @@ const initialState = {
 };
 
 const optionalBody = (body) => {
-  if (body === {}) {
-    return {};
+  if (body === null) {
+    return null;
   }
   return JSON.stringify(body);
 };
 
-const fetchAPI = async (method, endPoint, body = {}) => {
+const fetchAPI = async (method, endPoint, body = null) => {
   const request = await fetch(`http://localhost:4000/api/v1/${endPoint}`, {
     method,
     headers: {
       Accept: 'application/json',
       'Content-Type': 'application/json',
     },
-    get: optionalBody(body),
+    body: optionalBody(body),
   });
   const response = await request.json();
   return response;
@@ -32,6 +33,11 @@ const fetchAPI = async (method, endPoint, body = {}) => {
 
 export const fetchCarList = createAsyncThunk(FETCH_CAR_LIST, async () => {
   const response = await fetchAPI('GET', 'cars');
+  return response;
+});
+
+export const updateFetchCarList = createAsyncThunk(UPDATE_FETCH_CAR_LIST, async (body) => {
+  const response = await fetchAPI('POST', 'cars/add', body);
   return response;
 });
 
@@ -67,7 +73,16 @@ const carListSlice = createSlice({
         indexes: state.indexes,
         delay: state.delay,
       }
-    ));
+    ))
+      .addCase(updateFetchCarList.fulfilled, (state, action) => (
+        {
+          status: state.status,
+          cars: action.payload.data,
+          message: action.payload.message,
+          indexes: state.indexes,
+          delay: state.delay,
+        }
+      ));
   },
 });
 
