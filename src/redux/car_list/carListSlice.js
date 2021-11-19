@@ -6,7 +6,7 @@ const UPDATE_FETCH_CAR_LIST = 'cars/updateFetchCarList';
 const initialState = {
   status: 'default',
   cars: [],
-  message: '',
+  response: '',
   indexes: [],
   delay: true,
 };
@@ -49,7 +49,7 @@ const carListSlice = createSlice({
       {
         status: state.status,
         cars: state.cars,
-        message: '',
+        response: '',
         indexes: action.payload,
         delay: state.delay,
       }
@@ -58,7 +58,7 @@ const carListSlice = createSlice({
       {
         status: state.status,
         cars: state.cars,
-        message: '',
+        response: '',
         indexes: state.indexes,
         delay: action.payload,
       }
@@ -69,7 +69,7 @@ const carListSlice = createSlice({
       {
         status: 'ready',
         cars: action.payload.data,
-        message: action.payload.message,
+        response: '',
         indexes: state.indexes,
         delay: state.delay,
       }
@@ -78,7 +78,7 @@ const carListSlice = createSlice({
         {
           status: state.status,
           cars: action.payload.data,
-          message: action.payload.message,
+          response: action.payload.message,
           indexes: state.indexes,
           delay: state.delay,
         }
@@ -87,7 +87,7 @@ const carListSlice = createSlice({
         {
           status: state.status,
           cars: state.cars,
-          message: '',
+          response: '',
           indexes: state.indexes,
           delay: state.delay,
         }

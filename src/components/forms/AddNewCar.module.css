@@ -11,9 +11,11 @@
 
 .message {
   position: absolute;
+  padding: 0.5rem 0;
   width: 100%;
-  top: 10%;
+  top: 5%;
   z-index: 2;
+  background-color: white;
   text-align: center;
 }
 
