@@ -1,15 +1,24 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { openForm } from '../../redux/car_list/addNewCarFormSlice';
+import { openForm, showForm } from '../../redux/car_list/addNewCarFormSlice';
 import { updateFetchCarList } from '../../redux/car_list/carListSlice';
 import Close from '../../svgs/close.svg';
 import style from './AddNewCar.module.css';
 
 const AddNewCar = () => {
   const { response } = useSelector((state) => state.carList);
+  const { formDelay } = useSelector((state) => state.addNewCarForm);
   const dispatch = useDispatch();
+  useEffect(() => {
+    setTimeout(() => {
+      dispatch((showForm()));
+    }, 10);
+  }, []);
   const toggleFormHandle = () => {
-    dispatch(openForm());
+    dispatch((showForm()));
+    setTimeout(() => {
+      dispatch(openForm());
+    }, 1000);
   };
   const submitForm = (event) => {
     event.preventDefault();
@@ -40,7 +49,7 @@ const AddNewCar = () => {
   };
 
   return (
-    <div>
+    <div className={`${style.showForm} ${formDelay ? '' : style.showFormOn}`}>
       <div className={style.glassContainer} />
       <div className={
         `${style.message} ${response === '' ? '' : style.messageOn}`

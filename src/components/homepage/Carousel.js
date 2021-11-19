@@ -38,13 +38,13 @@ const CarouselWide = () => {
     ),
   );
 
-  const next = () => {
+  const nextHandle = () => {
     transition();
     const newIndexes = shiftRow(indexes, cars);
     dispatch(updateIndexes(newIndexes));
   };
 
-  const prev = () => {
+  const prevHandle = () => {
     transition();
     const newIndexes = unshiftRow(indexes, cars);
     dispatch(updateIndexes(newIndexes));
@@ -52,7 +52,7 @@ const CarouselWide = () => {
 
   return (
     <div className={style.carousel}>
-      <button type="button" className={style.prevBtn} onClick={prev}>
+      <button type="button" className={style.prevBtn} onClick={prevHandle}>
         <PrevSVG style={style} />
       </button>
       <div className={
@@ -63,7 +63,7 @@ const CarouselWide = () => {
       >
         {cars.length >= 1 ? mapCars : ''}
       </div>
-      <button type="button" className={style.nextBtn} onClick={next}>
+      <button type="button" className={style.nextBtn} onClick={nextHandle}>
         <NextSVG style={style} />
       </button>
     </div>

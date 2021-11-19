@@ -27,7 +27,9 @@ const HomePage = () => {
   }, [status, wide]);
 
   const openFormHandle = () => {
-    dispatch(openForm());
+    if (!open) {
+      dispatch(openForm());
+    }
   };
 
   return (
