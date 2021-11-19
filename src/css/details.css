@@ -62,6 +62,10 @@
   font-family: var(--font);
 }
 
+.detail-list-header {
+  justify-content: flex-end;
+}
+
 .detail-list-alt {
   background: rgb(225, 227, 229);
 }
