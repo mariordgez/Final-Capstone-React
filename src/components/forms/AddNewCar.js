@@ -48,8 +48,8 @@ const AddNewCar = () => {
       >
         <span className={
           Array.isArray(response)
-            ? style.unsuccessfull
-            : style.successfull
+            ? style.unsuccessful
+            : style.successful
           }
         >
           {renderresponse()}

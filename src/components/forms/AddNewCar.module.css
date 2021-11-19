@@ -5,8 +5,9 @@
   left: 0;
   right: 0;
   z-index: 1;
-  background-color: hsla(0, 0%, 80%, 0.85);
-  filter: blur(3rem);
+  content: '';
+  background-color: hsla(0, 0%, 80%, 0.5);
+  backdrop-filter: blur(5px);
 }
 
 .message {
@@ -25,11 +26,11 @@
   opacity: 1;
 }
 
-.successfull {
+.successful {
   color: var(--apple-green);
 }
 
-.unsuccessfull {
+.unsuccessful {
   color: hsl(354, 100%, 60%);
 }
 
@@ -43,6 +44,7 @@
   background-color: var(--apple-green);
   color: white;
   border-radius: 1rem;
+  box-shadow: 0 0 0.5rem 0.5rem var(--silver);
 }
 
 .closeButton {
@@ -76,4 +78,25 @@ input[type="number"] {
   background-color: white;
   color: var(--apple-green);
   font-weight: bolder;
+}
+
+@media screen and (min-width: 1200px) {
+  .form label {
+    margin: 1.25rem 0;
+  }
+
+  .title {
+    margin-top: 2rem;
+    margin-left: 2rem;
+  }
+
+  .form input[type="text"],
+  input[type="number"] {
+    margin: 0 2rem;
+    width: 15vw;
+  }
+
+  .submitButton {
+    margin-right: 2rem;
+  }
 }
