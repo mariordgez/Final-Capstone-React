@@ -52,13 +52,18 @@ const CarouselWide = () => {
 
   return (
     <div className={style.carousel}>
-      <button type="button" className={style.prevbtn} onClick={prev}>
+      <button type="button" className={style.prevBtn} onClick={prev}>
         <PrevSVG style={style} />
       </button>
-      <div className={delay ? style.cardscon : `${style.cardscon} ${style.cardsconshow}`}>
+      <div className={
+        delay
+          ? style.cardsContainer
+          : `${style.cardsContainer} ${style.cardsContainerShow}`
+        }
+      >
         {cars.length >= 1 ? mapCars : ''}
       </div>
-      <button type="button" className={style.nextbtn} onClick={next}>
+      <button type="button" className={style.nextBtn} onClick={next}>
         <NextSVG style={style} />
       </button>
     </div>

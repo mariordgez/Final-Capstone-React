@@ -2,24 +2,24 @@
   position: relative;
 }
 
-.pageheader {
+.pageHeader {
   margin: 4.5rem auto 0 auto;
   text-align: center;
 }
 
-.pageheader h1 {
+.pageHeader h1 {
   text-transform: uppercase;
   font-size: 1.25rem;
   font-weight: bolder;
 }
 
-.pageheader h3 {
+.pageHeader h3 {
   text-transform: none;
   font-size: 1rem;
   color: var(--silver);
 }
 
-.pageheader div {
+.pageHeader div {
   margin: 3rem auto;
   width: 15vw;
   border-bottom: 0.2rem  dotted var(--silver);
@@ -31,19 +31,19 @@
   justify-content: space-around;
 }
 
-.cardscon {
+.cardsContainer {
   display: flex;
   width: 100%;
   justify-content: space-around;
   opacity: 0;
 }
 
-.cardsconshow {
+.cardsContainerShow {
   opacity: 1;
   transition: all 0.35s ease-in;
 }
 
-.prevbtn {
+.prevBtn {
   margin-bottom: 15rem;
   padding: 0.75rem 0.4rem;
   align-items: center;
@@ -54,7 +54,7 @@
   color: white;
 }
 
-.nextbtn {
+.nextBtn {
   margin-bottom: 15rem;
   padding: 0.75rem 0.4rem;
   border: none;
@@ -64,8 +64,8 @@
   color: white;
 }
 
-.nextsvg,
-.prevsvg {
+.nextSvg,
+.prevSvg {
   width: 20px;
   height: 20px;
   fill: var(--dark-gray);
@@ -84,7 +84,7 @@
   margin: 0;
 }
 
-.bgimage {
+.bgImage {
   margin: auto;
   background-color: var(--apple-green);
   max-width: 12rem;
@@ -123,7 +123,7 @@
   font-size: 0.75rem;
 }
 
-.detailsbtn {
+.detailsBtn {
   margin-top: 1rem;
   padding: 0.75rem 1.5rem;
   border: none;
@@ -134,21 +134,21 @@
 }
 
 @media screen and (min-width: 350px) {
-  .nextsvg,
-  .prevsvg {
+  .nextSvg,
+  .prevSvg {
     width: 40px;
     height: 40px;
   }
 }
 
 @media screen and (min-width: 1200px) {
-  .pageheader h1 {
+  .pageHeader h1 {
     text-transform: uppercase;
     font-size: 2rem;
     font-weight: bolder;
   }
 
-  .pageheader h3 {
+  .pageHeader h3 {
     text-transform: none;
     font-size: 1.25rem;
     color: var(--silver);
@@ -158,20 +158,20 @@
     justify-content: space-between;
   }
 
-  .prevbtn {
+  .prevBtn {
     margin-bottom: 5rem;
     padding: 1rem 1rem 1rem 2.5rem;
     background-color: var(--silver);
   }
 
-  .nextbtn {
+  .nextBtn {
     margin-bottom: 5rem;
     padding: 1rem 2.5rem 1rem 1rem;
     background-color: var(--apple-green);
   }
 
-  .nextsvg,
-  .prevsvg {
+  .nextSvg,
+  .prevSvg {
     width: 24px;
     height: 24px;
     fill: white;
