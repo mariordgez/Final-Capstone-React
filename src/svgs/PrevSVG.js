@@ -5,7 +5,7 @@ const PrevSVG = (props) => {
   const { style } = props;
   return (
     <svg
-      className={style.prevsvg}
+      className={style.prevSvg}
       xmlns="http://www.w3.org/2000/svg"
       fillRule="evenodd"
       clipRule="evenodd"

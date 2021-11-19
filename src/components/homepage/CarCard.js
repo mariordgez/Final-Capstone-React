@@ -19,7 +19,7 @@ const CarCard = (props) => {
   return (
     <article className={style.card}>
       <NavLink to={`detail/cars/${id}`}>
-        <div style={image} className={style.bgimage} />
+        <div style={image} className={style.bgImage} />
       </NavLink>
       <div className={style.info}>
         <h2>{`${brand} ${name}`}</h2>
@@ -28,7 +28,7 @@ const CarCard = (props) => {
         <div className={style.desc}>
           <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
         </div>
-        <button className={style.detailsbtn} type="button">
+        <button className={style.detailsBtn} type="button">
           <NavLink to={`detail/cars/${id}`}>
             DETAILS
           </NavLink>

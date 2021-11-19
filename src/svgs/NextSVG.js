@@ -5,7 +5,7 @@ const NextSVG = (props) => {
   const { style } = props;
   return (
     <svg
-      className={style.nextsvg}
+      className={style.nextSvg}
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 24 24"
     >

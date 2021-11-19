@@ -1,11 +1,11 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { delayShow, updateIndexes } from '../../redux/homepage/carListSlice';
-import CarCard from './CarCard';
+import { delayShow, updateIndexes } from '../../redux/car_list/carListSlice';
 import { shiftRow, unshiftRow } from './indexes';
-import style from './HomePage.module.css';
+import CarCard from './CarCard';
 import NextSVG from '../../svgs/NextSVG';
 import PrevSVG from '../../svgs/PrevSVG';
+import style from './HomePage.module.css';
 
 const CarouselWide = () => {
   const dispatch = useDispatch();
@@ -38,13 +38,13 @@ const CarouselWide = () => {
     ),
   );
 
-  const next = () => {
+  const nextHandle = () => {
     transition();
     const newIndexes = shiftRow(indexes, cars);
     dispatch(updateIndexes(newIndexes));
   };
 
-  const prev = () => {
+  const prevHandle = () => {
     transition();
     const newIndexes = unshiftRow(indexes, cars);
     dispatch(updateIndexes(newIndexes));
@@ -52,13 +52,18 @@ const CarouselWide = () => {
 
   return (
     <div className={style.carousel}>
-      <button type="button" className={style.prevbtn} onClick={prev}>
+      <button type="button" className={style.prevBtn} onClick={prevHandle}>
         <PrevSVG style={style} />
       </button>
-      <div className={delay ? style.cardscon : `${style.cardscon} ${style.cardsconshow}`}>
+      <div className={
+        delay
+          ? style.cardsContainer
+          : `${style.cardsContainer} ${style.cardsContainerShow}`
+        }
+      >
         {cars.length >= 1 ? mapCars : ''}
       </div>
-      <button type="button" className={style.nextbtn} onClick={next}>
+      <button type="button" className={style.nextBtn} onClick={nextHandle}>
         <NextSVG style={style} />
       </button>
     </div>

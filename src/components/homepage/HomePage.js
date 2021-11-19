@@ -1,15 +1,18 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useMediaQuery } from 'react-responsive';
-import { fetchCarList, updateIndexes } from '../../redux/homepage/carListSlice';
-import Carousel from './Carousel';
-import style from './HomePage.module.css';
+import { openForm } from '../../redux/car_list/addNewCarFormSlice';
+import { fetchCarList, updateIndexes } from '../../redux/car_list/carListSlice';
 import { initIndexes } from './indexes';
+import Carousel from './Carousel';
+import AddNewCar from '../forms/AddNewCar';
+import style from './HomePage.module.css';
 
 const HomePage = () => {
   const { status, cars } = useSelector((state) => state.carList);
-  const dispatch = useDispatch();
+  const { open } = useSelector((state) => state.addNewCarForm);
   const wide = useMediaQuery({ query: '(min-width: 1200px)' });
+  const dispatch = useDispatch();
   useEffect(() => {
     if (status === 'default') {
       dispatch(fetchCarList());
@@ -23,9 +26,17 @@ const HomePage = () => {
     }
   }, [status, wide]);
 
+  const openFormHandle = () => {
+    if (!open) {
+      dispatch(openForm());
+    }
+  };
+
   return (
-    <main>
-      <div className={style.pageheader}>
+    <main className={style.main}>
+      <button type="button" onClick={openFormHandle}>ADD A NEW CAR</button>
+      {open ? <AddNewCar /> : ''}
+      <div className={style.pageHeader}>
         <h1>Latest Car Models</h1>
         <h3>Please select a car model</h3>
         <div />
