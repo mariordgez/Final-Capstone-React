@@ -82,6 +82,15 @@ const carListSlice = createSlice({
           indexes: state.indexes,
           delay: state.delay,
         }
+      ))
+      .addDefaultCase((state) => (
+        {
+          status: state.status,
+          cars: state.cars,
+          message: '',
+          indexes: state.indexes,
+          delay: state.delay,
+        }
       ));
   },
 });

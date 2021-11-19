@@ -31,7 +31,7 @@ const HomePage = () => {
   };
 
   return (
-    <main>
+    <main className={style.main}>
       <button type="button" onClick={openFormHandle}>ADD A NEW CAR</button>
       {open ? <AddNewCar /> : ''}
       <div className={style.pageheader}>
