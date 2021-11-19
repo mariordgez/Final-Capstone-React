@@ -19,7 +19,7 @@ const optionalBody = (body) => {
 };
 
 const fetchAPI = async (method, endPoint, body = null) => {
-  const request = await fetch(`http://localhost:4000/api/v1/${endPoint}`, {
+  const request = await fetch(`${process.env.REACT_APP_API_PATH}${endPoint}`, {
     method,
     headers: {
       Accept: 'application/json',
