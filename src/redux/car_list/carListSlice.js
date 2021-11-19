@@ -5,26 +5,34 @@ const FETCH_CAR_LIST = 'cars/fetchCarList';
 const initialState = {
   status: 'default',
   cars: [],
+  message: '',
   indexes: [],
   delay: true,
 };
 
-const fetchAPI = async () => {
-  const URL = 'http://localhost:4000/api/v1/cars';
-  const request = await fetch(URL, {
+const optionalBody = (body) => {
+  if (body === {}) {
+    return {};
+  }
+  return JSON.stringify(body);
+};
+
+const fetchAPI = async (method, endPoint, body = {}) => {
+  const request = await fetch(`http://localhost:4000/api/v1/${endPoint}`, {
+    method,
     headers: {
       Accept: 'application/json',
       'Content-Type': 'application/json',
     },
-    method: 'GET',
+    get: optionalBody(body),
   });
   const response = await request.json();
   return response;
 };
 
 export const fetchCarList = createAsyncThunk(FETCH_CAR_LIST, async () => {
-  const greeting = await fetchAPI();
-  return greeting;
+  const response = await fetchAPI('GET', 'cars');
+  return response;
 });
 
 const carListSlice = createSlice({
@@ -35,6 +43,7 @@ const carListSlice = createSlice({
       {
         status: state.status,
         cars: state.cars,
+        message: '',
         indexes: action.payload,
         delay: state.delay,
       }
@@ -43,6 +52,7 @@ const carListSlice = createSlice({
       {
         status: state.status,
         cars: state.cars,
+        message: '',
         indexes: state.indexes,
         delay: action.payload,
       }
@@ -52,7 +62,8 @@ const carListSlice = createSlice({
     builder.addCase(fetchCarList.fulfilled, (state, action) => (
       {
         status: 'ready',
-        cars: [...state.cars, ...action.payload],
+        cars: action.payload.data,
+        message: action.payload.message,
         indexes: state.indexes,
         delay: state.delay,
       }

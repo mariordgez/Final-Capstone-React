@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { delayShow, updateIndexes } from '../../redux/homepage/carListSlice';
+import { delayShow, updateIndexes } from '../../redux/car_list/carListSlice';
 import CarCard from './CarCard';
 import { shiftRow, unshiftRow } from './indexes';
 import style from './HomePage.module.css';

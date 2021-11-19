@@ -1,7 +1,7 @@
 import { createStore, combineReducers, applyMiddleware } from 'redux';
 import thunk from 'redux-thunk';
 import logger from 'redux-logger';
-import carListSlice from './homepage/carListSlice';
+import carListSlice from './car_list/carListSlice';
 
 const combineMiddleware = [thunk, logger];
 

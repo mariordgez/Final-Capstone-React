@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useMediaQuery } from 'react-responsive';
-import { fetchCarList, updateIndexes } from '../../redux/homepage/carListSlice';
+import { fetchCarList, updateIndexes } from '../../redux/car_list/carListSlice';
 import Carousel from './Carousel';
 import style from './HomePage.module.css';
 import { initIndexes } from './indexes';
