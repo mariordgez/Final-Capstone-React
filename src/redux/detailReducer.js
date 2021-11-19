@@ -1,8 +1,8 @@
-import axios from "axios";
+import axios from 'axios';
 
-const LOAD_DETAIL = "LOAD_DETAIL";
-const LOAD_DETAIL_SUCCESS = "LOAD_DETAIL_SUCCESS";
-const LOAD_DETAIL_FAIL = "LOAD_DETAIL_FAIL";
+const LOAD_DETAIL = 'LOAD_DETAIL';
+const LOAD_DETAIL_SUCCESS = 'LOAD_DETAIL_SUCCESS';
+const LOAD_DETAIL_FAIL = 'LOAD_DETAIL_FAIL';
 
 const initialState = { detail: {} };
 
@@ -26,7 +26,7 @@ const detailReducer = (state = initialState, action) => {
     case LOAD_DETAIL:
       return { ...state };
     case LOAD_DETAIL_SUCCESS:
-      return { greeting: action.payload };
+      return { ...state, detail: action.payload };
     case LOAD_DETAIL_FAIL:
       return { ...state };
 
@@ -35,14 +35,14 @@ const detailReducer = (state = initialState, action) => {
   }
 };
 
-const endPoint = "http://127.0.0.1:3000/api/v1/cars/detail/";
+const endPoint = 'http://127.0.0.1:4000/api/v1/cars';
 
-const fetchDetail = () => (dispatch) => {
+const fetchDetail = (payload) => (dispatch) => {
   dispatch(loadDetail());
   axios
     .get(`${endPoint}/${payload.id}`)
     .then((response) => {
-      if (response.data !== "") {
+      if (response.data !== '') {
         dispatch(loadDetailSuccess(response.data));
       }
     })

@@ -3,6 +3,7 @@ import {
   BrowserRouter as Router, Routes, Route, Link,
 } from 'react-router-dom';
 import Detail from './components/Detail';
+import './App.css';
 
 function App() {
   return (
@@ -25,7 +26,7 @@ function App() {
         {/* A <Switch> looks through its children <Route>s and
         renders the first one that matches the current URL. */}
         <Routes>
-          <Route path="/detail/cars/:id" element={<Detail />} />
+          <Route path="/detail/cars/:carid" element={<Detail />} />
           <Route path="/about" element={<About />} />
           <Route exact path="/" element={<Home />} />
           <Route path="/users" element={<Users />} />
