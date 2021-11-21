@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 
 const LoginForm = ({
   submitCredentialsFunc,
+  failed,
 }) => {
   const valRef = useRef([]);
   const val = ['username'];
@@ -23,14 +24,17 @@ const LoginForm = ({
 
   return (
     <form onSubmit={enterCredentials}>
-      <input name="username" id="username" placeholder="Username" ref={(el) => { valRef.current[0] = el; }} />
-      <button type="submit">Log In</button>
+      {failed ? <p className="form-warning">Invalid username entered! Please enter the username of an existing user.</p>
+        : null}
+      <input className="login-field" name="username" id="username" placeholder="Username" ref={(el) => { valRef.current[0] = el; }} />
+      <button className="login-submit" type="submit">Log In</button>
     </form>
   );
 };
 
 LoginForm.propTypes = {
   submitCredentialsFunc: PropTypes.func.isRequired,
+  failed: PropTypes.bool.isRequired,
 };
 
 export default LoginForm;

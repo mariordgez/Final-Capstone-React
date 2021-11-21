@@ -21,7 +21,18 @@ function App() {
       <main>
         <Routes>
           {authDetails.authenticated ? <Route exact path="/" element={<HomePage />} />
-            : <Route exact path="/" element={<LoginForm submitCredentialsFunc={submitCredentials} />} />}
+            : (
+              <Route
+                exact
+                path="/"
+                element={(
+                  <LoginForm
+                    submitCredentialsFunc={submitCredentials}
+                    failed={authDetails.failedToAuth}
+                  />
+)}
+              />
+            )}
         </Routes>
       </main>
     </Router>
