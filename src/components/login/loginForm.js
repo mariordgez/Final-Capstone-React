@@ -1,9 +1,8 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import PropTypes from 'prop-types';
 
-
-const loginPage = ({
-  submitCredentialsFunc
+const LoginForm = ({
+  submitCredentialsFunc,
 }) => {
   const valRef = useRef([]);
   const val = ['username'];
@@ -22,17 +21,16 @@ const loginPage = ({
     }
   };
 
-
-  return(
+  return (
     <form onSubmit={enterCredentials}>
-      <input name='username' id='username' placeholder='Username' />
-      <button type='submit'>Log In</button>
+      <input name="username" id="username" placeholder="Username" ref={(el) => { valRef.current[0] = el; }} />
+      <button type="submit">Log In</button>
     </form>
   );
 };
 
-loginPage.propTypes = {
+LoginForm.propTypes = {
   submitCredentialsFunc: PropTypes.func.isRequired,
 };
 
-export default loginPage;
+export default LoginForm;

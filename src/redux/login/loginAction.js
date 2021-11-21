@@ -3,7 +3,7 @@ const VERIFY_CREDENTIALS = 'user/VERIFY_CREDENTIALS';
 const initialState = {
   authenticated: false,
   failedToAuth: false,
-}
+};
 
 const requestURL = 'http://localhost:4000/api/v1/users';
 
@@ -16,7 +16,7 @@ export const verifyCredentials = (username) => async (dispatch) => {
     method: 'GET',
   });
   const responseData = request.data;
-  const userExists = false;
+  let userExists = false;
   if (responseData) {
     responseData.forEach((obj) => {
       if (username === obj.user_name) {
@@ -28,7 +28,7 @@ export const verifyCredentials = (username) => async (dispatch) => {
     type: VERIFY_CREDENTIALS,
     payload: userExists,
   });
-}; 
+};
 
 const reducer = (state = initialState, action) => {
   switch (action.type) {
@@ -38,12 +38,11 @@ const reducer = (state = initialState, action) => {
           ...state,
           authenticated: action.payload,
         };
-      } else {
-        return {
-          ...state,
-          failedToAuth: true,
-        };
       }
+      return {
+        ...state,
+        failedToAuth: true,
+      };
     default:
       return state;
   }
