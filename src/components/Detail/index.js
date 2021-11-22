@@ -19,6 +19,7 @@ const Detail = () => {
   const handleReservation = () => {
     navigate('/reservation/form');
   };
+  const formatCurrency = (n, currency) => currency + n.replace(/(\d)(?=(\d{3})+\.)/g, '$1,');
 
   if (!data) return <>loading</>;
   return (
@@ -36,7 +37,7 @@ const Detail = () => {
             </li>
             <li className="detail-list-alt">{data.model}</li>
             <li>{data.brand}</li>
-            <li className="detail-list-alt">{data.price}</li>
+            <li className="detail-list-alt">{formatCurrency(data.price, '$')}</li>
           </ul>
         </div>
         <div className="back">
