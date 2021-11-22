@@ -47,7 +47,7 @@ const initialState = {
     },
   ],
   response: '',
-  indexes: [0, 1, 2, 3],
+  indexes: [0, 1, 2],
   delay: true,
 };
 

@@ -4,7 +4,19 @@ const LOAD_DETAIL = 'LOAD_DETAIL';
 const LOAD_DETAIL_SUCCESS = 'LOAD_DETAIL_SUCCESS';
 const LOAD_DETAIL_FAIL = 'LOAD_DETAIL_FAIL';
 
-const initialState = { detail: {} };
+const initialState = {
+  detail: {
+    data: {
+      name: 'Civic',
+      model: 'RS 2022',
+      brand: 'Honda',
+      price: '21900.0',
+      image_url:
+        'https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/2022-honda-civic-sedan-110-1623810388.jpg',
+      removed: false,
+    },
+  },
+};
 
 const loadDetail = (payload) => ({
   type: LOAD_DETAIL,
