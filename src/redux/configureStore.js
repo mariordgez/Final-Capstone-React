@@ -1,7 +1,6 @@
 import { createStore, combineReducers, applyMiddleware } from 'redux';
 import thunk from 'redux-thunk';
 import logger from 'redux-logger';
-import carListSlice from './homepage/carListSlice';
 import loginPageReducer from './login/loginAction';
 import { detailReducer } from './detailReducer';
 import carListSlice from './car_list/carListSlice';
