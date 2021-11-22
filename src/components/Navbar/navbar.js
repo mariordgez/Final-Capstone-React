@@ -35,13 +35,13 @@ const Navbar = (props) => {
                 </Link>
               </li>
               <li className="px-1 nav-item w-100 hoverlink">
-                <Link to="/" className="hoverlink nav-link align-middle px-0">
+                <Link to="/reservations" className="hoverlink nav-link align-middle px-0">
                   <FontAwesomeIcon icon={faCalendarCheck} />
                   <span className="ms-1 d-none d-sm-inline">Reservations</span>
                 </Link>
               </li>
               <li className="px-1 nav-item w-100 hoverlink">
-                <Link to="/" className="hoverlink nav-link align-middle px-0">
+                <Link to="/myReservations" className="hoverlink nav-link align-middle px-0">
                   <FontAwesomeIcon icon={faClipboard} />
                   <span className="ms-1 d-none d-sm-inline">My Reservations</span>
                 </Link>

@@ -5,6 +5,8 @@ import { verifyCredentials } from './redux/login/loginAction';
 import HomePage from './components/homepage/HomePage';
 import LoginForm from './components/login/loginForm';
 import Detail from './components/Detail';
+import Reservations from './components/Reservations/reservations';
+import MyReservations from './components/Reservations/myReservations';
 import './App.css';
 import Navbar from './components/Navbar/navbar';
 
@@ -35,6 +37,8 @@ function App() {
             />
           )}
           <Route path="/detail/cars/:carid" element={<Navbar Page={Detail} />} />
+          <Route path="/reservations" element={<Navbar Page={Reservations} />} />
+          <Route path="/myReservations" element={<Navbar Page={MyReservations} />} />
         </Routes>
       </main>
     </Router>
