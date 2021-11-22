@@ -1,7 +1,10 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;500;600&display=swap");
+
 :root {
   --apple-green: #98bf11;
   --dark-gray: #464646;
   --silver: #c9c9c9;
+  --font: "Montserrat", sans-serif;
 }
 
 body {

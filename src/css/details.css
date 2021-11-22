@@ -1,0 +1,130 @@
+.detailContainer {
+  display: grid;
+  grid-template-areas:
+    "imgdisplay imgdisplay detail"
+    "imgdisplay imgdisplay detail"
+    "imgdisplay imgdisplay detail"
+    "imgdisplay imgdisplay detail"
+    "back back reserve";
+  grid-gap: 10px;
+  margin: 0;
+  padding: 0;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 100px;
+  right: 0;
+}
+
+.imgdisplay {
+  grid-area: imgdisplay;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.detail {
+  grid-area: detail;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.back {
+  grid-area: back;
+}
+
+.reserve {
+  grid-area: reserve;
+}
+
+.img-container img {
+  max-width: 600px;
+}
+
+.detail-list {
+  display: flex;
+  flex-direction: column;
+  list-style: none;
+  width: 300px;
+  margin-top: -200px;
+  padding: 0;
+}
+
+.detail-list li {
+  padding: 15px;
+  display: flex;
+  font-family: var(--font);
+  font-weight: 100;
+}
+
+.detail-list h1 {
+  font-family: var(--font);
+}
+
+.detail-list-header {
+  justify-content: flex-end;
+}
+
+.detail-list-alt {
+  background: rgb(225, 227, 229);
+}
+
+.reserve-btn {
+  padding: 0.6em 2em;
+  border-radius: 20px;
+  color: #fff;
+  background-color: var(--apple-green);
+  font-size: 1.1em;
+  border: 0;
+  cursor: pointer;
+}
+
+.back-btn {
+  padding: 0.6em 2em;
+  border-radius: 0 20px 20px 0;
+  color: #fff;
+  background-color: var(--apple-green);
+  font-size: 1.1em;
+  border: 0;
+  cursor: pointer;
+}
+
+@media only screen and (max-width: 800px) {
+  .detailContainer {
+    display: grid;
+    grid-template-areas:
+      "imgdisplay imgdisplay"
+      "imgdisplay imgdisplay "
+      "detail detail "
+      "back  reserve";
+    grid-gap: 10px;
+    margin: 0;
+    padding: 0;
+    position: absolute;
+    top: 50px;
+    bottom: 0;
+    left: 0;
+    right: 0;
+  }
+
+  .detail-list {
+    display: flex;
+    flex-direction: column;
+    list-style: none;
+    width: 300px;
+    padding: 0;
+    margin-top: auto;
+  }
+
+  .reserve-btn {
+    border-radius: 20px 0 0 20px;
+    height: 42px;
+  }
+
+  .reserve {
+    display: flex;
+    align-items: flex-end;
+    flex-direction: column;
+  }
+}

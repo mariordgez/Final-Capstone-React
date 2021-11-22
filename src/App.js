@@ -6,6 +6,7 @@ import {
 import { verifyCredentials } from './redux/login/loginAction';
 import HomePage from './components/homepage/HomePage';
 import LoginForm from './components/login/loginForm';
+import Detail from './components/Detail';
 import './App.css';
 
 function App() {
@@ -33,6 +34,7 @@ function App() {
 )}
               />
             )}
+          <Route path="/detail/cars/:carid" element={<Detail />} />
         </Routes>
       </main>
     </Router>
