@@ -7,18 +7,22 @@
   background-color: #98bf11;
   color: white;
 }
-.hoverlink:hover {
-  color: white;
-}
+
 .hoverlink {
   display: block;
   padding: 0.5rem 1rem;
   padding-right: 1rem;
   padding-left: 1rem;
   text-decoration: none;
-  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out,
+  transition:
+    color 0.15s ease-in-out,
+    background-color 0.15s ease-in-out,
     border-color 0.15s ease-in-out;
   color: black;
+}
+
+.hoverlink:hover {
+  color: white;
 }
 
 .border-right {
