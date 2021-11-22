@@ -7,6 +7,7 @@ import LoginForm from './components/login/loginForm';
 import Detail from './components/Detail';
 import Reservations from './components/Reservations/reservations';
 import MyReservations from './components/Reservations/myReservations';
+import AddNewCar from './components/forms/AddNewCar';
 import './App.css';
 import Navbar from './components/Navbar/navbar';
 
@@ -39,6 +40,7 @@ function App() {
           <Route path="/detail/cars/:carid" element={<Navbar Page={Detail} />} />
           <Route path="/reservations" element={<Navbar Page={Reservations} />} />
           <Route path="/myReservations" element={<Navbar Page={MyReservations} />} />
+          <Route path="/addCar" element={<Navbar Page={AddNewCar} />} />
         </Routes>
       </main>
     </Router>
