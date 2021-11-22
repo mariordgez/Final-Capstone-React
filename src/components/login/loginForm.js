@@ -1,5 +1,6 @@
 import React, { useEffect, useRef } from 'react';
 import PropTypes from 'prop-types';
+import style from './LoginForm.module.css';
 
 const LoginForm = ({
   submitCredentialsFunc,
@@ -23,12 +24,15 @@ const LoginForm = ({
   };
 
   return (
-    <form onSubmit={enterCredentials}>
-      {failed ? <p className="form-warning">Invalid username entered! Please enter the username of an existing user.</p>
-        : null}
-      <input className="login-field" name="username" id="username" placeholder="Username" ref={(el) => { valRef.current[0] = el; }} />
-      <button className="login-submit" type="submit">Log In</button>
-    </form>
+    <div className={style.loginContainer}>
+      <form onSubmit={enterCredentials} className={style.login}>
+        <h1>Please enter your username to Log In</h1>
+        {failed ? <p className={style.formWarning}>Invalid username entered!</p>
+          : null}
+        <input className={style.loginField} name="username" id="username" placeholder="Username" ref={(el) => { valRef.current[0] = el; }} />
+        <button className={style.loginSubmit} type="submit">Log In</button>
+      </form>
+    </div>
   );
 };
 
