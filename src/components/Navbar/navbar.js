@@ -1,11 +1,12 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 const Navbar = (props) => {
   const { Page } = props;
   return (
-    <div className="container">
+    <div className="container-fluid">
       <div className="row flex-nowrap">
         <div className="col-auto col-md-3 col-xl-2 px-sm-2 px-0 bg-dark">
           <div className="d-flex flex-column align-items-center align-items-sm-start px-3 pt-2 text-white min-vh-100">
@@ -34,5 +35,11 @@ const Navbar = (props) => {
       </div>
     </div>
   );
+};
+Navbar.propTypes = {
+  Page: PropTypes.elementType,
+};
+Navbar.defaultProps = {
+  Page: 'HomePage',
 };
 export default Navbar;

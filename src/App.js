@@ -19,11 +19,9 @@ function App() {
   return (
     <Router>
       <main style={{ display: 'flex' }}>
-        <Navbar />
-
         <Routes>
           {authDetails.authenticated ? (
-            <Route exact path="/" element={<HomePage />} />
+            <Route exact path="/" element={<Navbar Page={HomePage} />} />
           ) : (
             <Route
               exact
