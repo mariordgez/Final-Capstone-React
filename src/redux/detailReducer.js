@@ -6,15 +6,7 @@ const LOAD_DETAIL_FAIL = 'LOAD_DETAIL_FAIL';
 
 const initialState = {
   detail: {
-    data: {
-      name: 'Civic',
-      model: 'RS 2022',
-      brand: 'Honda',
-      price: '21900.0',
-      image_url:
-        'https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/2022-honda-civic-sedan-110-1623810388.jpg',
-      removed: false,
-    },
+    data: {},
   },
 };
 
@@ -50,7 +42,7 @@ const detailReducer = (state = initialState, action) => {
 const fetchDetail = (payload) => (dispatch) => {
   dispatch(loadDetail());
   axios
-    .get(`${process.env.REACT_APP_API_PATH}${payload.id}`)
+    .get(`${process.env.REACT_APP_API_PATH}cars/${payload.id}`)
     .then((response) => {
       if (response.data !== '') {
         dispatch(loadDetailSuccess(response.data));

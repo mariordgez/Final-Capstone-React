@@ -3,10 +3,10 @@ import axios from 'axios';
 const VERIFY_CREDENTIALS = 'user/VERIFY_CREDENTIALS';
 
 const initialState = {
-  authenticated: true,
+  authenticated: false,
   failedToAuth: false,
-  userName: 'john123',
-  userId: 1,
+  userName: '',
+  userId: null,
 };
 
 const requestURL = 'http://localhost:4000/api/v1/users';

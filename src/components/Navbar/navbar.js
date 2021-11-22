@@ -83,7 +83,7 @@ const Navbar = (props) => {
             </ul>
           </div>
         </div>
-        <div className="col py-3">
+        <div className="col px-0">
           <Page />
         </div>
       </div>
