@@ -34,7 +34,7 @@ function App() {
               )}
             />
           )}
-          <Route path="/detail/cars/:carid" element={<Detail />} />
+          <Route path="/detail/cars/:carid" element={<Navbar Page={Detail} />} />
         </Routes>
       </main>
     </Router>

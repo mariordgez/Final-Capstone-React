@@ -1,0 +1,8 @@
+.hoverlink:hover {
+  background-color: #98bf11;
+  color: white;
+}
+
+.hoverlink {
+  color: black;
+}
