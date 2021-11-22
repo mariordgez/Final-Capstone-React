@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { NavLink } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
 import '../../css/navbar.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -11,9 +12,14 @@ import {
   faCalendarCheck,
   faCar,
 } from '@fortawesome/free-solid-svg-icons';
+import { openForm } from '../../redux/car_list/addNewCarFormSlice';
 
 const Navbar = (props) => {
+  const dispatch = useDispatch();
   const { Page } = props;
+  const openFormHandle = () => {
+    dispatch(openForm());
+  };
   return (
     <div className="container-fluid">
       <div className="row flex-nowrap">
@@ -32,13 +38,8 @@ const Navbar = (props) => {
             >
               <li className="px-1 nav-item w-100 hoverli">
                 <NavLink
-                  exact
                   to="/"
                   className={(isActive) => `hoverlink  align-middle px-0${!isActive ? ' selected' : ''}`}
-                  activeStyle={{
-                    fontWeight: 'bold',
-                    color: 'red',
-                  }}
                 >
                   <FontAwesomeIcon icon={faHome} />
                   <span className="ms-1 d-none d-sm-inline">Home</span>
@@ -64,11 +65,12 @@ const Navbar = (props) => {
               </li>
               <li className="px-1 nav-item w-100 hoverli">
                 <NavLink
-                  to="/addCar"
-                  className={(isActive) => `hoverlink align-middle px-0${!isActive ? ' selected' : ''}`}
+                  to="/"
+                  onClick={openFormHandle}
+                  className={(isActive) => `hoverlink  align-middle px-0${!isActive ? ' selected' : ''}`}
                 >
                   <FontAwesomeIcon icon={faCar} />
-                  <span className="ms-1 d-none d-sm-inline">Add a new car</span>
+                  <span className="ms-1 d-none d-sm-inline">Add new car</span>
                 </NavLink>
               </li>
               <li className="px-1 nav-item w-100 hoverli">
