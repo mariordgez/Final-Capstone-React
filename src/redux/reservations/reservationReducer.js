@@ -13,7 +13,7 @@ const optionalBody = (body) => {
   return JSON.stringify(body);
 };
 
-const fetchAPI = async (method, endPoint, body = null) => {
+const fetchAPI = async (method, endPoint, body) => {
   const request = await fetch(`${process.env.REACT_APP_API_PATH}${endPoint}`, {
     method,
     headers: {

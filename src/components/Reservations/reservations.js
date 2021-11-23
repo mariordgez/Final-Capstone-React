@@ -5,6 +5,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import Card from 'react-bootstrap/Card';
 import Container from 'react-bootstrap/Container';
 import ReservationButton from './reservationButton';
+import ReservationForm from './reservationForm';
 import { fetchReservationList } from '../../redux/reservations/reservationReducer';
 
 const Reservation = () => {
@@ -28,7 +29,7 @@ const Reservation = () => {
         alt="Card image"
       />
       <Card.ImgOverlay>
-        <Container>{form ? <ReservationButton /> : ''}</Container>
+        <Container>{form ? <ReservationForm /> : <ReservationButton />}</Container>
       </Card.ImgOverlay>
     </Card>
   );
