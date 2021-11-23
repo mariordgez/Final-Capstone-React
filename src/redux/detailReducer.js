@@ -5,9 +5,7 @@ const LOAD_DETAIL_SUCCESS = 'LOAD_DETAIL_SUCCESS';
 const LOAD_DETAIL_FAIL = 'LOAD_DETAIL_FAIL';
 
 const initialState = {
-  detail: {
-    data: {},
-  },
+  detail: {},
 };
 
 const loadDetail = (payload) => ({
