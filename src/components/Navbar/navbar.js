@@ -21,10 +21,10 @@ const Navbar = (props) => {
     dispatch(openForm());
   };
   return (
-    <div className="container-fluid">
+    <div className="container-fluid gap-0">
       <div className="row flex-nowrap">
-        <div className="col-auto col-md-3 col-xl-2 px-sm-2 px-0 bg-white">
-          <div className="border-right d-flex flex-column align-items-center align-items-sm-start px-0 pt-2 text-white min-vh-100">
+        <div className="col-auto col-md-3 col-xl-2  px-0 bg-white">
+          <div className="w-100 border-right d-flex flex-column align-items-center align-items-sm-start px-0 pt-2 text-white min-vh-100">
             <NavLink
               exact
               to="/"
