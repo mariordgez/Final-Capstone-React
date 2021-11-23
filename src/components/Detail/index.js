@@ -14,14 +14,14 @@ const Detail = () => {
   }, [dispatch]);
 
   const hanldeBack = () => {
-    navigate('/');
+    navigate('/home');
   };
   const handleReservation = () => {
     navigate('/reservation/form');
   };
+  if (!data) return <>loading</>;
   const formatCurrency = (n, currency) => currency + n.replace(/(\d)(?=(\d{3})+\.)/g, '$1,');
 
-  if (!data) return <>loading</>;
   return (
     <>
       <div className="detailContainer">
@@ -37,7 +37,9 @@ const Detail = () => {
             </li>
             <li className="detail-list-alt">{data.model}</li>
             <li>{data.brand}</li>
-            <li className="detail-list-alt">{formatCurrency(data.price, '$')}</li>
+            <li className="detail-list-alt">
+              {formatCurrency(data.price, '$')}
+            </li>
           </ul>
         </div>
         <div className="back">
@@ -46,7 +48,11 @@ const Detail = () => {
           </button>
         </div>
         <div className="reserve">
-          <button type="button" className="reserve-btn" onClick={handleReservation}>
+          <button
+            type="button"
+            className="reserve-btn"
+            onClick={handleReservation}
+          >
             Reserve
           </button>
         </div>
