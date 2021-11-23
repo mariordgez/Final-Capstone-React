@@ -13,14 +13,14 @@ const ReservationButton = () => {
   };
 
   return (
-    <>
-      <Card.Title className="text-align big-title">Welcome to test a car!</Card.Title>
+    <div className="h-100 text-align align-middle">
+      <Card.Title className="my-5 text-align big-title">Welcome to test a car!</Card.Title>
       <Card.Text className="py-5">
-        <Button variant="primary" size="lg" onClick={reservationForm}>
+        <Button variant="success" size="lg" onClick={reservationForm}>
           Reserve a test drive
         </Button>
       </Card.Text>
-    </>
+    </div>
   );
 };
 
