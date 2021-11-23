@@ -18,7 +18,7 @@ const ReservationForm = () => {
       city: reservationData.get('city'),
       date: reservationData.get('date'),
     };
-    console.log(body);
+    JSON.stringify(body);
 
     dispatch(updateFetchReservationList(body));
   };
