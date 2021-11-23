@@ -1,7 +1,6 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useMediaQuery } from 'react-responsive';
-import { openForm } from '../../redux/car_list/addNewCarFormSlice';
 import { fetchCarList, updateIndexes } from '../../redux/car_list/carListSlice';
 import { initIndexes } from './indexes';
 import Carousel from './Carousel';
@@ -26,17 +25,8 @@ const HomePage = () => {
     }
   }, [status, wide]);
 
-  const openFormHandle = () => {
-    if (!open) {
-      dispatch(openForm());
-    }
-  };
-
   return (
-    <main className={style.main}>
-      <button type="button" onClick={openFormHandle}>
-        ADD A NEW CAR
-      </button>
+    <div className={style.main}>
       {open ? <AddNewCar /> : ''}
       <div className={style.pageHeader}>
         <h1>Latest Car Models</h1>
@@ -44,7 +34,7 @@ const HomePage = () => {
         <div />
       </div>
       <Carousel />
-    </main>
+    </div>
   );
 };
 
