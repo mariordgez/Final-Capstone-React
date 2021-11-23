@@ -34,7 +34,9 @@ const HomePage = () => {
 
   return (
     <main className={style.main}>
-      <button type="button" onClick={openFormHandle}>ADD A NEW CAR</button>
+      <button type="button" onClick={openFormHandle}>
+        ADD A NEW CAR
+      </button>
       {open ? <AddNewCar /> : ''}
       <div className={style.pageHeader}>
         <h1>Latest Car Models</h1>
