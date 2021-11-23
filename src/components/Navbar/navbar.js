@@ -85,7 +85,7 @@ const Navbar = (props) => {
             </ul>
           </div>
         </div>
-        <div className="col px-0">
+        <div className="col px-0 d-flex">
           <Page />
         </div>
       </div>
