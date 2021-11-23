@@ -11,11 +11,11 @@ const AddNewCar = () => {
   const dispatch = useDispatch();
   useEffect(() => {
     setTimeout(() => {
-      dispatch((showForm()));
+      dispatch(showForm());
     }, 10);
   }, []);
   const toggleFormHandle = () => {
-    dispatch((showForm()));
+    dispatch(showForm());
     setTimeout(() => {
       dispatch(openForm());
     }, 1000);
@@ -36,13 +36,11 @@ const AddNewCar = () => {
 
   const renderresponse = () => {
     if (Array.isArray(response)) {
-      const mapReponse = response.map(
-        (item) => (
-          <div key={item.message}>
-            <span>{item.message}</span>
-          </div>
-        ),
-      );
+      const mapReponse = response.map((item) => (
+        <div key={item.message}>
+          <span>{item.message}</span>
+        </div>
+      ));
       return mapReponse;
     }
     return response;
@@ -51,36 +49,17 @@ const AddNewCar = () => {
   return (
     <div className={`${style.showForm} ${formDelay ? '' : style.showFormOn}`}>
       <div className={style.glassContainer} />
-      <div className={
-        `${style.message} ${response === '' ? '' : style.messageOn}`
-      }
-      >
-        <span className={
-          Array.isArray(response)
-            ? style.unsuccessful
-            : style.successful
-          }
-        >
+      <div className={`${style.message} ${response === '' ? '' : style.messageOn}`}>
+        <span className={Array.isArray(response) ? style.unsuccessful : style.successful}>
           {renderresponse()}
         </span>
       </div>
       <div className={style.formContainer}>
-        <button
-          type="button"
-          onClick={toggleFormHandle}
-          className={style.closeButton}
-        >
+        <button type="button" onClick={toggleFormHandle} className={style.closeButton}>
           <img src={Close} alt="close" />
         </button>
-        <h3 className={style.title}>
-          ADD A NEW CAR
-        </h3>
-        <form
-          className={style.form}
-          name="add_car"
-          action="post"
-          onSubmit={submitForm}
-        >
+        <h3 className={style.title}>ADD A NEW CAR</h3>
+        <form className={style.form} name="add_car" action="post" onSubmit={submitForm}>
           <label htmlFor="name">
             <input type="text" name="name" id="name" placeholder="Name" required />
           </label>

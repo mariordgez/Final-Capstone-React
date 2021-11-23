@@ -10,15 +10,9 @@ import { fetchReservationList } from '../../redux/reservations/reservationReduce
 
 const Reservation = () => {
   const { reservations, form } = useSelector((state) => state.reservationList);
-  const { userId } = useSelector((state) => state.loginPage);
-  const { cars } = useSelector((state) => state.carList);
   const dispatch = useDispatch();
   useEffect(() => {
     if (reservations.length === 0) dispatch(fetchReservationList());
-    console.log(reservations);
-    console.log(userId);
-    console.log(cars);
-    console.log(form);
   }, []);
 
   return (

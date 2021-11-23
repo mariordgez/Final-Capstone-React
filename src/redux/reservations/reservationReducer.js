@@ -1,3 +1,5 @@
+import axios from 'axios';
+
 const FETCH_RESERVATION_LIST = 'reservations/fetchReservationList';
 const UPDATE_FETCH_RESERVATION_LIST = 'reservations/updateFetchReservationsList';
 const FORM_TOGGLE = 'reservations/formToggle';
@@ -6,21 +8,13 @@ const initialState = {
   form: false,
 };
 
-const optionalBody = (body) => {
-  if (body === null) {
-    return null;
-  }
-  return JSON.stringify(body);
-};
-
 const fetchAPI = async (method, endPoint, body) => {
   const request = await fetch(`${process.env.REACT_APP_API_PATH}${endPoint}`, {
     method,
     headers: {
-      Accept: 'application/json',
-      'Content-Type': 'application/json',
+      Accept: '*/*',
     },
-    body: optionalBody(body),
+    body,
   });
   const response = await request.json();
   return response;
@@ -34,11 +28,15 @@ export const fetchReservationList = () => async (dispatch) => {
   });
 };
 
-export const updateFetchReservationList = () => async (dispatch, body) => {
-  const response = await fetchAPI('POST', 'reservations/add', body);
-  dispatch({
-    type: UPDATE_FETCH_RESERVATION_LIST,
-    payload: response,
+const postURL = 'http://localhost:4000/api/v1/reservations/add';
+
+export const updateFetchReservationList = (body) => async (dispatch) => {
+  await axios.post(postURL, body).then((response) => {
+    const responseData = response.data;
+    dispatch({
+      type: UPDATE_FETCH_RESERVATION_LIST,
+      payload: responseData,
+    });
   });
 };
 
