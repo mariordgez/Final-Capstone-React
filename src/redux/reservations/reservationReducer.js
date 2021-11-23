@@ -1,8 +1,9 @@
 const FETCH_RESERVATION_LIST = 'reservations/fetchReservationList';
 const UPDATE_FETCH_RESERVATION_LIST = 'reservations/updateFetchReservationsList';
-
+const FORM_TOGGLE = 'reservations/formToggle';
 const initialState = {
   reservations: [],
+  form: false,
 };
 
 const optionalBody = (body) => {
@@ -41,6 +42,10 @@ export const updateFetchReservationList = () => async (dispatch, body) => {
   });
 };
 
+export const formToggle = () => ({
+  type: FORM_TOGGLE,
+});
+
 const reservationReducer = (state = initialState, action) => {
   switch (action.type) {
     case FETCH_RESERVATION_LIST:
@@ -53,6 +58,12 @@ const reservationReducer = (state = initialState, action) => {
       return {
         ...state,
         reservations: action.payload.data,
+      };
+
+    case FORM_TOGGLE:
+      return {
+        ...state,
+        form: !state.form,
       };
 
     default:

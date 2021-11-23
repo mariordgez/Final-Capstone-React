@@ -13,7 +13,7 @@ const MyReservation = () => {
   const { cars } = useSelector((state) => state.carList);
   const dispatch = useDispatch();
   useEffect(() => {
-    dispatch(fetchReservationList());
+    if (reservations.length === 0) dispatch(fetchReservationList());
   }, []);
 
   return (
