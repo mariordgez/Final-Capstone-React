@@ -14,7 +14,7 @@ const Detail = () => {
   }, [dispatch]);
 
   const hanldeBack = () => {
-    navigate('/home');
+    navigate('/');
   };
   const handleReservation = () => {
     navigate('/reservation/form');
