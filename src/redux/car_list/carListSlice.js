@@ -45,53 +45,44 @@ const carListSlice = createSlice({
   name: 'cars',
   initialState,
   reducers: {
-    updateIndexes: (state, action) => (
-      {
-        status: state.status,
-        cars: state.cars,
-        response: '',
-        indexes: action.payload,
-        delay: state.delay,
-      }
-    ),
-    delayShow: (state, action) => (
-      {
-        status: state.status,
-        cars: state.cars,
-        response: '',
-        indexes: state.indexes,
-        delay: action.payload,
-      }
-    ),
+    updateIndexes: (state, action) => ({
+      status: state.status,
+      cars: state.cars,
+      response: '',
+      indexes: action.payload,
+      delay: state.delay,
+    }),
+    delayShow: (state, action) => ({
+      status: state.status,
+      cars: state.cars,
+      response: '',
+      indexes: state.indexes,
+      delay: action.payload,
+    }),
   },
   extraReducers: (builder) => {
-    builder.addCase(fetchCarList.fulfilled, (state, action) => (
-      {
+    builder
+      .addCase(fetchCarList.fulfilled, (state, action) => ({
         status: 'ready',
         cars: action.payload.data,
         response: '',
         indexes: state.indexes,
         delay: state.delay,
-      }
-    ))
-      .addCase(updateFetchCarList.fulfilled, (state, action) => (
-        {
-          status: state.status,
-          cars: action.payload.data,
-          response: action.payload.message,
-          indexes: state.indexes,
-          delay: state.delay,
-        }
-      ))
-      .addDefaultCase((state) => (
-        {
-          status: state.status,
-          cars: state.cars,
-          response: '',
-          indexes: state.indexes,
-          delay: state.delay,
-        }
-      ));
+      }))
+      .addCase(updateFetchCarList.fulfilled, (state, action) => ({
+        status: state.status,
+        cars: action.payload.data,
+        response: action.payload.message,
+        indexes: state.indexes,
+        delay: state.delay,
+      }))
+      .addDefaultCase((state) => ({
+        status: state.status,
+        cars: state.cars,
+        response: '',
+        indexes: state.indexes,
+        delay: state.delay,
+      }));
   },
 });
 
