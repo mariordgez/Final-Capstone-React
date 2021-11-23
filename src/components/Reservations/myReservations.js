@@ -3,17 +3,19 @@ import { useDispatch, useSelector } from 'react-redux';
 import '../../css/reservation.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Card from 'react-bootstrap/Card';
+import Table from 'react-bootstrap/Table';
+import Container from 'react-bootstrap/Container';
 import { fetchReservationList } from '../../redux/reservations/reservationReducer';
 
 const MyReservation = () => {
   const { reservations } = useSelector((state) => state.reservationList);
   const { userName, userId } = useSelector((state) => state.loginPage);
+  const { cars } = useSelector((state) => state.carList);
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(fetchReservationList());
-    console.log(userId);
-    console.log(reservations);
   }, []);
+
   return (
     <Card className="bg-dark text-white h-100">
       <Card.Img
@@ -22,16 +24,48 @@ const MyReservation = () => {
         alt="Card image"
       />
       <Card.ImgOverlay>
-        <Card.Title>
+        <Card.Title className="text-align big-title">
           Hello &nbsp;
           {userName}
           !, here you can see your scheduled reservations:
         </Card.Title>
-        <Card.Text>
-          This is a wider card with supporting text below as a natural lead-in to additional
-          content. This content is a little bit longer.
+        <Card.Text className="py-5">
+          <Container>
+            <Table className="bg-white" striped bordered hover>
+              <thead>
+                <tr>
+                  <th>Date</th>
+                  <th>City</th>
+                  <th>Car</th>
+                </tr>
+              </thead>
+              <tbody>
+                {reservations
+                  .filter((reservation) => reservation.user_id === userId)
+                  .map((reservation) => cars
+                    .filter((car) => car.id === reservation.car_id)
+                    .map((filteredcar) => (
+                      <tr key={filteredcar.id}>
+                        <td>
+                          {' '}
+                          {reservation.date}
+                          {' '}
+                        </td>
+                        <td>
+                          {' '}
+                          {reservation.city}
+                        </td>
+                        <td>
+                          {filteredcar.brand}
+                          {' '}
+                          {filteredcar.name}
+                        </td>
+                      </tr>
+                    )))}
+              </tbody>
+            </Table>
+          </Container>
         </Card.Text>
-        <Card.Text>Last updated 3 mins ago</Card.Text>
       </Card.ImgOverlay>
     </Card>
   );
