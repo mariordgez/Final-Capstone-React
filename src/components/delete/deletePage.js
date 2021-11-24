@@ -1,18 +1,13 @@
-import React, { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { bindActionCreators } from 'redux';
+import React from 'react';
+import PropTypes from 'prop-types';
+import { useDispatch } from 'react-redux';
 import {
-  getCarDeleteDetails,
   markCarRemoved,
   restoreRemovedCar,
 } from '../../redux/delete/deleteAction';
 
-const DeletePage = () => {
-  const carRecords = useSelector((state) => state.deletePage);
+const DeletePage = ({ carRecords }) => {
   const dispatch = useDispatch();
-  const loadCarsDeleteDetails = bindActionCreators(getCarDeleteDetails, dispatch);
-
-  useEffect(() => loadCarsDeleteDetails(), []);
 
   const deleteCar = (e) => {
     dispatch(markCarRemoved(carRecords, e.target.id));
@@ -37,6 +32,16 @@ const DeletePage = () => {
       ))}
     </table>
   );
+};
+
+DeletePage.propTypes = {
+  carRecords: PropTypes.arrayOf(PropTypes.shape({
+    id: PropTypes.number.isRequired,
+    name: PropTypes.string.isRequired,
+    model: PropTypes.string.isRequired,
+    brand: PropTypes.string.isRequired,
+    removed: PropTypes.bool.isRequired,
+  })).isRequired,
 };
 
 export default DeletePage;

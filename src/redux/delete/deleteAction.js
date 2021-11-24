@@ -25,6 +25,7 @@ export const getCarDeleteDetails = () => async (dispatch) => {
         carsArr.push(carRecord);
       });
     }
+    console.log(carsArr);
   });
   dispatch({
     type: GET_CARS_REMOVE_FLAGS,
