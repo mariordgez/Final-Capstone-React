@@ -4,7 +4,9 @@ const LOAD_DETAIL = 'LOAD_DETAIL';
 const LOAD_DETAIL_SUCCESS = 'LOAD_DETAIL_SUCCESS';
 const LOAD_DETAIL_FAIL = 'LOAD_DETAIL_FAIL';
 
-const initialState = { detail: {} };
+const initialState = {
+  detail: {},
+};
 
 const loadDetail = (payload) => ({
   type: LOAD_DETAIL,
@@ -38,7 +40,7 @@ const detailReducer = (state = initialState, action) => {
 const fetchDetail = (payload) => (dispatch) => {
   dispatch(loadDetail());
   axios
-    .get(`${process.env.REACT_APP_API_PATH}${payload.id}`)
+    .get(`${process.env.REACT_APP_API_PATH}cars/${payload.id}`)
     .then((response) => {
       if (response.data !== '') {
         dispatch(loadDetailSuccess(response.data));

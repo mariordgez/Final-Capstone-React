@@ -19,8 +19,9 @@ const Detail = () => {
   const handleReservation = () => {
     navigate('/reservation/form');
   };
-  const formatCurrency = (n, currency) => currency + n.replace(/(\d)(?=(\d{3})+\.)/g, '$1,');
   if (!data) return <>loading</>;
+  const formatCurrency = (n, currency) => currency + n.replace(/(\d)(?=(\d{3})+\.)/g, '$1,');
+
   return (
     <>
       <div className="detailContainer">
