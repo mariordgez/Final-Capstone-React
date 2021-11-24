@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import {
   getCarDeleteDetails,
@@ -12,9 +12,7 @@ const DeletePage = () => {
   const dispatch = useDispatch();
   const loadCarsDeleteDetails = bindActionCreators(getCarDeleteDetails, dispatch);
 
-  useEffect(() => {
-    loadCarsDeleteDetails();
-  }, []);
+  useEffect(() => loadCarsDeleteDetails(), []);
 
   const deleteCar = (e) => {
     dispatch(markCarRemoved(carRecords, e.target.id));
@@ -27,7 +25,7 @@ const DeletePage = () => {
   return (
     <table>
       {carRecords.map((record) => (
-        <tr key={record.id} id={record.id}>
+        <tr key={record.id}>
           <td>{ record.name }</td>
           <td>{ record.model }</td>
           <td>{ record.brand }</td>

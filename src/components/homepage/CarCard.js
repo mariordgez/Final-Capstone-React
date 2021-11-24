@@ -33,6 +33,11 @@ const CarCard = (props) => {
             DETAILS
           </NavLink>
         </button>
+        <button className={style.detailsBtn} type="button">
+          <NavLink to="detail/cars/delete">
+            DELETE
+          </NavLink>
+        </button>
       </div>
     </article>
   );

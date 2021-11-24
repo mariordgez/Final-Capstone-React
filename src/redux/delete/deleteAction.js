@@ -12,8 +12,9 @@ export const getCarDeleteDetails = () => async (dispatch) => {
   const carsArr = [];
   axios.get(requestURL).then((response) => {
     const responseData = response.data;
-    if (responseData) {
-      responseData.forEach((obj) => {
+    if (responseData.data) {
+      const carObjs = responseData.data;
+      carObjs.forEach((obj) => {
         const carRecord = {
           id: obj.id,
           name: obj.name,
@@ -84,11 +85,11 @@ export const restoreRemovedCar = (curState, id) => async (dispatch) => {
 const reducer = (state = initialState, action) => {
   switch (action.type) {
     case GET_CARS_REMOVE_FLAGS:
-      return action.payload;
+      return [...action.payload];
     case MARK_CAR_REMOVED:
-      return action.payload.carObjects;
+      return [...action.payload.carObjects];
     case RESTORE_REMOVED_CAR:
-      return action.payload.carObjects;
+      return [...action.payload.carObjects];
     default:
       return state;
   }

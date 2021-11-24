@@ -26,18 +26,15 @@ const CarouselWide = () => {
   }, []);
 
   const mapCars = indexes.map(
-    (index) => (cars[index].removed
-      ? (
-        <CarCard
-          key={cars[index].id}
-          id={cars[index].id}
-          name={cars[index].name}
-          model={cars[index].model}
-          brand={cars[index].brand}
-          imageUrl={cars[index].image_url}
-        />
-      )
-      : null
+    (index) => (
+      <CarCard
+        key={cars[index].id}
+        id={cars[index].id}
+        name={cars[index].name}
+        model={cars[index].model}
+        brand={cars[index].brand}
+        imageUrl={cars[index].image_url}
+      />
     ),
   );
 
