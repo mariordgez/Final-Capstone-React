@@ -26,16 +26,21 @@ const CarouselWide = () => {
   }, []);
 
   const mapCars = indexes.map(
-    (index) => (
-      <CarCard
-        key={cars[index].id}
-        id={cars[index].id}
-        name={cars[index].name}
-        model={cars[index].model}
-        brand={cars[index].brand}
-        imageUrl={cars[index].image_url}
-      />
-    ),
+    (index) => {
+      if (cars[index] !== undefined) {
+        return (
+          <CarCard
+            key={cars[index].id}
+            id={cars[index].id}
+            name={cars[index].name}
+            model={cars[index].model}
+            brand={cars[index].brand}
+            imageUrl={cars[index].image_url}
+          />
+        );
+      }
+      return '';
+    },
   );
 
   const nextHandle = () => {
