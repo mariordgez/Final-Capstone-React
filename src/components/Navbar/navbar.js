@@ -11,6 +11,7 @@ import {
   faSignOutAlt,
   faCalendarCheck,
   faCar,
+  faTrashAlt,
 } from '@fortawesome/free-solid-svg-icons';
 import { openForm } from '../../redux/car_list/addNewCarFormSlice';
 
@@ -75,6 +76,15 @@ const Navbar = (props) => {
               </li>
               <li className="px-1 nav-item w-100 hoverli">
                 <NavLink
+                  to="/detail/cars/delete"
+                  className={(isActive) => `hoverlink  align-middle px-0 ${!isActive ? ' selected' : ''}`}
+                >
+                  <FontAwesomeIcon icon={faTrashAlt} />
+                  <span className="ms-1 d-none d-sm-inline">Delete</span>
+                </NavLink>
+              </li>
+              <li className="px-1 nav-item w-100 hoverli">
+                <NavLink
                   to="/"
                   className={(isActive) => `hoverlink  align-middle px-0 ${!isActive ? ' selected' : ''}`}
                 >
@@ -93,7 +103,10 @@ const Navbar = (props) => {
   );
 };
 Navbar.propTypes = {
-  Page: PropTypes.elementType,
+  Page: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.object,
+    PropTypes.elementType]),
 };
 Navbar.defaultProps = {
   Page: 'HomePage',

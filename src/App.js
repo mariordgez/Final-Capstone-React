@@ -5,6 +5,7 @@ import { verifyCredentials } from './redux/login/loginAction';
 import HomePage from './components/homepage/HomePage';
 import LoginForm from './components/login/loginForm';
 import Detail from './components/Detail';
+import DeletePage from './components/delete/deletePage';
 import Reservations from './components/Reservations/reservations';
 import MyReservations from './components/Reservations/myReservations';
 import AddNewCar from './components/forms/AddNewCar';
@@ -24,10 +25,10 @@ function App() {
       <main style={{ display: 'flex' }}>
         <Routes>
           {authDetails.authenticated ? (
-            <Route exact path="/" element={<Navbar Page={HomePage} />} />
+            <Route exact="true" path="/" element={<Navbar Page={HomePage} />} />
           ) : (
             <Route
-              exact
+              exact="true"
               path="/"
               element={(
                 <LoginForm
@@ -41,6 +42,7 @@ function App() {
           <Route path="/reservations" element={<Navbar Page={Reservations} />} />
           <Route path="/myReservations" element={<Navbar Page={MyReservations} />} />
           <Route path="/addCar" element={<Navbar Page={AddNewCar} />} />
+          <Route path="/detail/cars/delete" element={<Navbar Page={DeletePage} />} />
         </Routes>
       </main>
     </Router>
