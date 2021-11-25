@@ -12,7 +12,9 @@ const Detail = () => {
   const { carId } = useParams();
   const { data } = useSelector((state) => state.detailState.detail);
   useEffect(() => {
-    dispatch(fetchDetail({ id: carId }));
+    setTimeout(() => {
+      dispatch(fetchDetail({ id: carId }));
+    }, 3000);
   }, [dispatch]);
 
   const handleBack = () => {
