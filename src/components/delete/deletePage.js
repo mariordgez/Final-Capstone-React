@@ -6,16 +6,22 @@ import {
   markCarRemoved,
   restoreRemovedCar,
 } from '../../redux/delete/deleteAction';
+import { clickRemoveButton } from '../../redux/delete/deleteBtnAction';
 
 const DeletePage = ({ carRecords }) => {
   const dispatch = useDispatch();
-
   const deleteCar = (e) => {
     dispatch(markCarRemoved(carRecords, e.target.id));
+    setTimeout(() => {
+      dispatch(clickRemoveButton());
+    }, 100);
   };
 
   const restoreCar = (e) => {
     dispatch(restoreRemovedCar(carRecords, e.target.id));
+    setTimeout(() => {
+      dispatch(clickRemoveButton());
+    }, 100);
   };
 
   return (

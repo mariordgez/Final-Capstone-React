@@ -13,16 +13,19 @@ import MyReservations from './components/Reservations/myReservations';
 import AddNewCar from './components/forms/AddNewCar';
 import './App.css';
 import Navbar from './components/Navbar/navbar';
+import { fetchCarList } from './redux/car_list/carListSlice';
 
 function App() {
   const authDetails = useSelector((state) => state.loginPage);
   const carRecords = useSelector((state) => state.deletePage);
   const dispatch = useDispatch();
   const loadCarsDeleteDetails = bindActionCreators(getCarDeleteDetails, dispatch);
+  const { button } = useSelector((state) => state.removeButton);
 
   useEffect(() => {
     loadCarsDeleteDetails();
-  }, []);
+    dispatch(fetchCarList());
+  }, [button]);
 
   const submitCredentials = (unameVal) => {
     dispatch(verifyCredentials(unameVal));

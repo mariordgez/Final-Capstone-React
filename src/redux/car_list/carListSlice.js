@@ -27,8 +27,10 @@ const fetchAPI = async (method, endPoint, body = null) => {
     },
     body: optionalBody(body),
   });
-  const response = await request.json();
-  return response;
+  const raWresponse = await request.json();
+  const { data, message } = raWresponse;
+  const filteredData = data.filter((car) => car.removed === false);
+  return { data: filteredData, message };
 };
 
 export const fetchCarList = createAsyncThunk(FETCH_CAR_LIST, async () => {

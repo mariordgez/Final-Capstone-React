@@ -7,6 +7,7 @@ import { detailReducer } from './detailReducer';
 import carListSlice from './car_list/carListSlice';
 import addNewCarForm from './car_list/addNewCarFormSlice';
 import deleteCarsReducer from './delete/deleteAction';
+import removeButton from './delete/deleteBtnAction';
 
 const combineMiddleware = [thunk, logger];
 
@@ -17,6 +18,7 @@ const reducer = combineReducers({
   detailState: detailReducer,
   deletePage: deleteCarsReducer,
   reservationList: reservationReducer,
+  removeButton,
 });
 
 const store = createStore(reducer, applyMiddleware(...combineMiddleware));
