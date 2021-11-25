@@ -1,9 +1,9 @@
-import React, { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { useParams, useNavigate } from 'react-router-dom';
-import '../../css/details.css';
-import { fetchDetail } from '../../redux/detailReducer';
-import { formToggle } from '../../redux/reservations/reservationReducer';
+import React, { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { useParams, useNavigate } from "react-router-dom";
+import "../../css/details.css";
+import { fetchDetail } from "../../redux/detailReducer";
+import { formToggle } from "../../redux/reservations/reservationReducer";
 
 const Detail = () => {
   const dispatch = useDispatch();
@@ -14,15 +14,16 @@ const Detail = () => {
     dispatch(fetchDetail({ id: carid }));
   }, [dispatch]);
 
-  const hanldeBack = () => {
-    navigate('/');
+  const handleBack = () => {
+    navigate("/");
   };
   const handleReservation = () => {
     dispatch(formToggle());
-    navigate('/reservations');
+    navigate("/reservations");
   };
   if (!data) return <>loading</>;
-  const formatCurrency = (n, currency) => currency + n.replace(/(\d)(?=(\d{3})+\.)/g, '$1,');
+  const formatCurrency = (n, currency) =>
+    currency + n.replace(/(\d)(?=(\d{3})+\.)/g, "$1,");
 
   return (
     <>
@@ -39,16 +40,28 @@ const Detail = () => {
             </li>
             <li className="detail-list-alt">{data.model}</li>
             <li>{data.brand}</li>
-            <li className="detail-list-alt">{formatCurrency(data.price, '$')}</li>
+            <li className="detail-list-alt">
+              {formatCurrency(data.price, "$")}
+            </li>
           </ul>
         </div>
         <div className="back">
-          <button type="button" className="back-btn" onClick={hanldeBack}>
+          <button
+            type="button"
+            data-testid="back-btn"
+            className="back-btn"
+            onClick={handleBack}
+          >
             Back
           </button>
         </div>
         <div className="reserve">
-          <button type="button" className="reserve-btn" onClick={handleReservation}>
+          <button
+            type="button"
+            data-testid="reserve-btn"
+            className="reserve-btn"
+            onClick={handleReservation}
+          >
             Reserve
           </button>
         </div>
