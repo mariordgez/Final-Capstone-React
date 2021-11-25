@@ -1,15 +1,26 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import { useDispatch } from 'react-redux';
+import React, { useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import { bindActionCreators } from 'redux';
 import style from './DeletePage.module.css';
 import {
   markCarRemoved,
   restoreRemovedCar,
+  getCarDeleteDetails,
 } from '../../redux/delete/deleteAction';
 import { clickRemoveButton } from '../../redux/delete/deleteBtnAction';
+import { fetchCarList } from '../../redux/car_list/carListSlice';
 
-const DeletePage = ({ carRecords }) => {
+const DeletePage = () => {
   const dispatch = useDispatch();
+  const carRecords = useSelector((state) => state.deletePage);
+  const loadCarsDeleteDetails = bindActionCreators(getCarDeleteDetails, dispatch);
+  const { button } = useSelector((state) => state.removeButton);
+
+  useEffect(() => {
+    loadCarsDeleteDetails();
+    dispatch(fetchCarList());
+  }, [button]);
+
   const deleteCar = (e) => {
     dispatch(markCarRemoved(carRecords, e.target.id));
     setTimeout(() => {
@@ -30,12 +41,29 @@ const DeletePage = ({ carRecords }) => {
         <tbody>
           {carRecords.map((record) => (
             <tr key={record.id}>
-              <td>{ record.name }</td>
-              <td>{ record.model }</td>
-              <td>{ record.brand }</td>
+              <td>{record.name}</td>
+              <td>{record.model}</td>
+              <td>{record.brand}</td>
               <td>
-                { record.removed ? <button type="button" className={style.restoreButton} id={record.id} onClick={restoreCar}>Restore</button>
-                  : <button type="button" className={style.removeButton} id={record.id} onClick={deleteCar}>Remove</button> }
+                {record.removed ? (
+                  <button
+                    type="button"
+                    className={style.restoreButton}
+                    id={record.id}
+                    onClick={restoreCar}
+                  >
+                    Restore
+                  </button>
+                ) : (
+                  <button
+                    type="button"
+                    className={style.removeButton}
+                    id={record.id}
+                    onClick={deleteCar}
+                  >
+                    Remove
+                  </button>
+                )}
               </td>
             </tr>
           ))}
@@ -43,16 +71,6 @@ const DeletePage = ({ carRecords }) => {
       </table>
     </div>
   );
-};
-
-DeletePage.propTypes = {
-  carRecords: PropTypes.arrayOf(PropTypes.shape({
-    id: PropTypes.number.isRequired,
-    name: PropTypes.string.isRequired,
-    model: PropTypes.string.isRequired,
-    brand: PropTypes.string.isRequired,
-    removed: PropTypes.bool.isRequired,
-  })).isRequired,
 };
 
 export default DeletePage;

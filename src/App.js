@@ -1,9 +1,7 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { bindActionCreators } from 'redux';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { verifyCredentials } from './redux/login/loginAction';
-import { getCarDeleteDetails } from './redux/delete/deleteAction';
 import HomePage from './components/homepage/HomePage';
 import LoginForm from './components/login/loginForm';
 import Detail from './components/Detail';
@@ -13,19 +11,10 @@ import MyReservations from './components/Reservations/myReservations';
 import AddNewCar from './components/forms/AddNewCar';
 import './App.css';
 import Navbar from './components/Navbar/navbar';
-import { fetchCarList } from './redux/car_list/carListSlice';
 
 function App() {
   const authDetails = useSelector((state) => state.loginPage);
-  const carRecords = useSelector((state) => state.deletePage);
   const dispatch = useDispatch();
-  const loadCarsDeleteDetails = bindActionCreators(getCarDeleteDetails, dispatch);
-  const { button } = useSelector((state) => state.removeButton);
-
-  useEffect(() => {
-    loadCarsDeleteDetails();
-    dispatch(fetchCarList());
-  }, [button]);
 
   const submitCredentials = (unameVal) => {
     dispatch(verifyCredentials(unameVal));
@@ -53,7 +42,7 @@ function App() {
           <Route path="/reservations" element={<Navbar Page={Reservations} />} />
           <Route path="/myReservations" element={<Navbar Page={MyReservations} />} />
           <Route path="/addCar" element={<Navbar Page={AddNewCar} />} />
-          <Route path="/detail/cars/delete" element={<DeletePage carRecords={carRecords} />} />
+          <Route path="/detail/cars/delete" element={<Navbar Page={DeletePage} />} />
         </Routes>
       </main>
     </Router>
