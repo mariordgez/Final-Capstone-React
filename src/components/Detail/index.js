@@ -1,36 +1,42 @@
-import React, { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { useParams, useNavigate } from "react-router-dom";
-import "../../css/details.css";
-import { fetchDetail } from "../../redux/detailReducer";
-import { formToggle } from "../../redux/reservations/reservationReducer";
+import React, { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { useParams, useNavigate } from 'react-router-dom';
+import '../../css/details.css';
+import { fetchDetail } from '../../redux/detailReducer';
+import { formToggle } from '../../redux/reservations/reservationReducer';
+import Spinner from './Spinner';
 
 const Detail = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const { carid } = useParams();
+  const { carId } = useParams();
   const { data } = useSelector((state) => state.detailState.detail);
   useEffect(() => {
-    dispatch(fetchDetail({ id: carid }));
+    dispatch(fetchDetail({ id: carId }));
   }, [dispatch]);
 
   const handleBack = () => {
-    navigate("/");
+    navigate('/');
   };
   const handleReservation = () => {
     dispatch(formToggle());
-    navigate("/reservations");
+    navigate('/reservations');
   };
-  if (!data) return <>loading</>;
-  const formatCurrency = (n, currency) =>
-    currency + n.replace(/(\d)(?=(\d{3})+\.)/g, "$1,");
+  if (!data) {
+    return (
+      <>
+        <Spinner />
+      </>
+    );
+  }
+  const formatCurrency = (n, currency) => currency + n.replace(/(\d)(?=(\d{3})+\.)/g, '$1,');
 
   return (
     <>
       <div className="detailContainer">
         <div className="imgdisplay">
           <div className="img-container">
-            <img src={data.image_url} alt="Super car" />
+            <img src={data.image_url} alt={data.name} />
           </div>
         </div>
         <div className="detail">
@@ -41,7 +47,7 @@ const Detail = () => {
             <li className="detail-list-alt">{data.model}</li>
             <li>{data.brand}</li>
             <li className="detail-list-alt">
-              {formatCurrency(data.price, "$")}
+              {formatCurrency(data.price, '$')}
             </li>
           </ul>
         </div>

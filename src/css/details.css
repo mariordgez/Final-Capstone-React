@@ -84,6 +84,23 @@
   cursor: pointer;
 }
 
+.center {
+  margin: auto;
+  top: 50%;
+  left: 50%;
+  font-size: 20px;
+}
+
+div.loader {
+  font-size: 100px;
+}
+
+.loaded {
+  font-size: 1.2em;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
 @media only screen and (max-width: 800px) {
   .detailContainer {
     display: grid;
