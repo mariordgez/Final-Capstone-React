@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useParams, useNavigate } from 'react-router-dom';
 import '../../css/details.css';
 import { fetchDetail } from '../../redux/detailReducer';
+import { formToggle } from '../../redux/reservations/reservationReducer';
 
 const Detail = () => {
   const dispatch = useDispatch();
@@ -17,7 +18,8 @@ const Detail = () => {
     navigate('/');
   };
   const handleReservation = () => {
-    navigate('/reservation/form');
+    dispatch(formToggle());
+    navigate('/reservations');
   };
   if (!data) return <>loading</>;
   const formatCurrency = (n, currency) => currency + n.replace(/(\d)(?=(\d{3})+\.)/g, '$1,');
@@ -37,9 +39,7 @@ const Detail = () => {
             </li>
             <li className="detail-list-alt">{data.model}</li>
             <li>{data.brand}</li>
-            <li className="detail-list-alt">
-              {formatCurrency(data.price, '$')}
-            </li>
+            <li className="detail-list-alt">{formatCurrency(data.price, '$')}</li>
           </ul>
         </div>
         <div className="back">
@@ -48,11 +48,7 @@ const Detail = () => {
           </button>
         </div>
         <div className="reserve">
-          <button
-            type="button"
-            className="reserve-btn"
-            onClick={handleReservation}
-          >
+          <button type="button" className="reserve-btn" onClick={handleReservation}>
             Reserve
           </button>
         </div>
