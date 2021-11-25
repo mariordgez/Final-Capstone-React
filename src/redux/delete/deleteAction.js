@@ -20,7 +20,6 @@ export const getCarDeleteDetails = () => async (dispatch) => {
         carsIdArr.push(carId);
       });
     }
-    console.log(carsIdArr);
   });
   await Promise.all(carsIdArr.map((id) => axios.get(`${requestURL}${id}`).then((response) => {
     const responseData = response.data;
@@ -29,7 +28,6 @@ export const getCarDeleteDetails = () => async (dispatch) => {
       carsArr.push(car);
     }
   })));
-  console.log(carsArr);
   dispatch({
     type: GET_CARS_REMOVE_FLAGS,
     payload: carsArr,
@@ -54,8 +52,7 @@ export const markCarRemoved = (curState, id) => async (dispatch) => {
       newState.push(modifiedObj);
     }
     payloadObj.carObjects = newState;
-  })
-    .catch((err) => console.log(err.response));
+  });
   dispatch({
     type: MARK_CAR_REMOVED,
     payload: payloadObj.carObjects,
