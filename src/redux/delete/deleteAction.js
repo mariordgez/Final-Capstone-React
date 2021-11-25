@@ -6,27 +6,30 @@ const RESTORE_REMOVED_CAR = 'car/RESTORE_REMOVED_CAR';
 
 const initialState = [];
 
-const requestURL = 'http://localhost:4000/api/v1/cars';
+const requestURL = 'http://localhost:4000/api/v1/cars/';
 
 export const getCarDeleteDetails = () => async (dispatch) => {
+  const carsIdArr = [];
   const carsArr = [];
-  axios.get(requestURL).then((response) => {
+  await axios.get(requestURL).then((response) => {
     const responseData = response.data;
     if (responseData.data) {
       const carObjs = responseData.data;
       carObjs.forEach((obj) => {
-        const carRecord = {
-          id: obj.id,
-          name: obj.name,
-          model: obj.model,
-          brand: obj.brand,
-          removed: obj.removed,
-        };
-        carsArr.push(carRecord);
+        const carId = obj.id;
+        carsIdArr.push(carId);
       });
     }
-    console.log(carsArr);
+    console.log(carsIdArr);
   });
+  await Promise.all(carsIdArr.map((id) => axios.get(`${requestURL}${id}`).then((response) => {
+    const responseData = response.data;
+    if (responseData) {
+      const car = responseData.data;
+      carsArr.push(car);
+    }
+  })));
+  console.log(carsArr);
   dispatch({
     type: GET_CARS_REMOVE_FLAGS,
     payload: carsArr,
@@ -40,7 +43,7 @@ export const markCarRemoved = (curState, id) => async (dispatch) => {
     updatedTime: null,
     carObjects: [],
   };
-  axios.post(`${requestURL}/${id}`, removeState).then((response) => {
+  await axios.patch(`${requestURL}${id}`, removeState).then((response) => {
     payloadObj.updatedTime = response.data.updatedAt;
     const newState = [];
     for (let i = 0; i < curState.length; i += 1) {
@@ -51,10 +54,11 @@ export const markCarRemoved = (curState, id) => async (dispatch) => {
       newState.push(modifiedObj);
     }
     payloadObj.carObjects = newState;
-  });
+  })
+    .catch((err) => console.log(err.response));
   dispatch({
     type: MARK_CAR_REMOVED,
-    payload: payloadObj,
+    payload: payloadObj.carObjects,
   });
 };
 
@@ -65,7 +69,7 @@ export const restoreRemovedCar = (curState, id) => async (dispatch) => {
     updatedTime: null,
     carObjects: [],
   };
-  axios.post(`${requestURL}/${id}`, removeState).then((response) => {
+  axios.patch(`${requestURL}${id}`, removeState).then((response) => {
     payloadObj.updatedTime = response.data.updatedAt;
     const newState = [];
     for (let i = 0; i < curState.length; i += 1) {
@@ -79,7 +83,7 @@ export const restoreRemovedCar = (curState, id) => async (dispatch) => {
   });
   dispatch({
     type: RESTORE_REMOVED_CAR,
-    payload: payloadObj,
+    payload: payloadObj.carObjects,
   });
 };
 
@@ -88,9 +92,9 @@ const reducer = (state = initialState, action) => {
     case GET_CARS_REMOVE_FLAGS:
       return [...action.payload];
     case MARK_CAR_REMOVED:
-      return [...action.payload.carObjects];
+      return [...action.payload];
     case RESTORE_REMOVED_CAR:
-      return [...action.payload.carObjects];
+      return [...action.payload];
     default:
       return state;
   }

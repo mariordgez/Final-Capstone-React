@@ -1,0 +1,36 @@
+.tableContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+td {
+  padding: 15px;
+  font-size: 24px;
+}
+
+.removeButton {
+  background-color: var(--dark-gray);
+  color: white;
+  border: none;
+}
+
+.restoreButton {
+  background-color: var(--apple-green);
+  color: white;
+  border: none;
+}
+
+.removeButton:hover {
+  color: skyblue;
+  cursor: pointer;
+}
+
+.restoreButton:hover {
+  color: skyblue;
+  cursor: pointer;
+}

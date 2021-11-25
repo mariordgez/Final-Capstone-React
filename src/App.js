@@ -33,10 +33,10 @@ function App() {
       <main style={{ display: 'flex' }}>
         <Routes>
           {authDetails.authenticated ? (
-            <Route exact path="/" element={<Navbar Page={HomePage} />} />
+            <Route exact="true" path="/" element={<Navbar Page={HomePage} />} />
           ) : (
             <Route
-              exact
+              exact="true"
               path="/"
               element={(
                 <LoginForm

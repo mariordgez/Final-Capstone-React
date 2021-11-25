@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { useDispatch } from 'react-redux';
+import style from './DeletePage.module.css';
 import {
   markCarRemoved,
   restoreRemovedCar,
@@ -18,19 +19,23 @@ const DeletePage = ({ carRecords }) => {
   };
 
   return (
-    <table>
-      {carRecords.map((record) => (
-        <tr key={record.id}>
-          <td>{ record.name }</td>
-          <td>{ record.model }</td>
-          <td>{ record.brand }</td>
-          <td>
-            { record.removed ? <button type="button" id={record.id} onClick={deleteCar}>Remove</button>
-              : <button type="button" id={record.id} onClick={restoreCar}>Restore</button> }
-          </td>
-        </tr>
-      ))}
-    </table>
+    <div className={style.tableContainer}>
+      <table>
+        <tbody>
+          {carRecords.map((record) => (
+            <tr key={record.id}>
+              <td>{ record.name }</td>
+              <td>{ record.model }</td>
+              <td>{ record.brand }</td>
+              <td>
+                { record.removed ? <button type="button" className={style.restoreButton} id={record.id} onClick={restoreCar}>Restore</button>
+                  : <button type="button" className={style.removeButton} id={record.id} onClick={deleteCar}>Remove</button> }
+              </td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
   );
 };
 
