@@ -1,0 +1,58 @@
+.hoverli:hover {
+  background-color: #98bf11;
+  border-radius: 5px 0 0 5px;
+  color: white;
+}
+
+.selected {
+  background-color: #98bf11;
+  color: white;
+}
+
+.icon-mx {
+  margin-left: 3px;
+  margin-right: 3px;
+}
+
+.hoverlink {
+  display: block;
+  padding: 0.5rem 1rem;
+  padding-right: 1rem;
+  padding-left: 1rem;
+  text-decoration: none;
+  transition:
+    color 0.15s ease-in-out,
+    background-color 0.15s ease-in-out,
+    border-color 0.15s ease-in-out;
+  color: black;
+}
+
+.hoverlink:hover {
+  color: white;
+}
+
+.border-right {
+  border-right: 3px solid rgb(165, 165, 165);
+}
+
+.big-title {
+  font-size: 1rem;
+}
+
+.nav-linke {
+  background: none;
+  border: 0;
+  border-radius: 5px 0 0 5px;
+}
+
+.nav-linke.active,
+.show > .nav-linke {
+  color: white;
+  background-color: #98bf11;
+}
+
+@media only screen and (min-width: 800px) {
+  .big-title {
+    font-size: 2rem;
+  }
+}

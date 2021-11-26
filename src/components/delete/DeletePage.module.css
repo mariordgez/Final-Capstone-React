@@ -1,0 +1,79 @@
+.tableContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  width: 75%;
+  height: 75%;
+}
+
+td {
+  padding: 15px;
+  font-size: 24px;
+}
+
+.removeButton,
+.restoreButton {
+  border-radius: 5px;
+}
+
+.removeButton {
+  background-color: var(--dark-gray);
+  color: white;
+  border: solid 1px var(--dark-gray);
+}
+
+.restoreButton {
+  background-color: var(--apple-green);
+  color: white;
+  border: solid 1px var(--apple-green);
+}
+
+.removeButton:hover {
+  color: var(--dark-gray);
+  cursor: pointer;
+  background: none;
+}
+
+.restoreButton:hover {
+  color: var(--apple-green);
+  cursor: pointer;
+  background: none;
+}
+
+@media screen and (min-width: 0) {
+  td {
+    padding: 5px;
+    font-size: 18px;
+  }
+
+  .removeButton,
+  .restoreButton {
+    font-size: 12px;
+  }
+}
+
+@media screen and (min-width: 530px) {
+  td {
+    padding: 7px;
+    font-size: 20px;
+  }
+
+  .removeButton,
+  .restoreButton {
+    font-size: 16px;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  td {
+    padding: 15px;
+    font-size: 24px;
+  }
+
+  .removeButton,
+  .restoreButton {
+    font-size: 24px;
+  }
+}
