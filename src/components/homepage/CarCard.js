@@ -28,16 +28,18 @@ const CarCard = (props) => {
         <div className={style.desc}>
           <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
         </div>
-        <button className={style.detailsBtn} type="button">
-          <NavLink to={`detail/cars/${id}`}>
-            DETAILS
-          </NavLink>
-        </button>
-        <button className={style.detailsBtn} type="button">
-          <NavLink to="detail/cars/delete">
-            DELETE
-          </NavLink>
-        </button>
+        <div className={style.buttonContainer}>
+          <button className={style.detailsBtn} type="button">
+            <NavLink to={`detail/cars/${id}`}>
+              DETAILS
+            </NavLink>
+          </button>
+          <button className={style.detailsBtn} type="button">
+            <NavLink to="detail/cars/delete">
+              DELETE
+            </NavLink>
+          </button>
+        </div>
       </div>
     </article>
   );

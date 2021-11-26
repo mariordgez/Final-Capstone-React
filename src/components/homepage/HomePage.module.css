@@ -134,6 +134,11 @@
   font-weight: bold;
 }
 
+.buttonContainer {
+  display: flex;
+  justify-content: space-between;
+}
+
 @media screen and (min-width: 350px) {
   .nextSvg,
   .prevSvg {
