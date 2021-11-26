@@ -17,10 +17,10 @@ const MyReservation = () => {
   }, []);
 
   return (
-    <Card className="bg-dark text-white h-100">
+    <Card className="bg-dark text-white h-100 w-100">
       <Card.Img
         className="reservation-bg"
-        src=" https://drive.google.com/uc?export=view&id=1JvXmF5rPm3dkeuzda-VK4g6U5iXku3bO"
+        src="https://serving.photos.photobox.com/819316695111b6709175d5055965fa84088ff222721618dff0b06303002b1ef4c2366609.jpg"
         alt="Card image"
       />
       <Card.ImgOverlay>
