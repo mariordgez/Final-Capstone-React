@@ -35,6 +35,9 @@ const DeletePage = () => {
     }, 100);
   };
 
+  carRecords.sort((a, b) => a.removed - b.removed);
+  carRecords.sort((a, b) => a.name - b.name);
+
   return (
     <div className={style.tableContainer}>
       <table>

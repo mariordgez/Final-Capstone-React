@@ -38,10 +38,19 @@ beforeEach(() => {
 });
 
 describe('Homepage component', () => {
-  test('Render car model', () => {
+  test('Latest Car Models', () => {
+    expect(screen.getByText('Latest Car Models')).toBeInTheDocument();
+  });
+  test('Please select a car model', () => {
+    expect(screen.getByText('Please select a car model')).toBeInTheDocument();
+  });
+  test('Render car model e460 2021', () => {
     expect(screen.getByText('e460 2021')).toBeInTheDocument();
   });
-  test('Render Back button', () => {
-    expect(screen.getByTestId('back-btn').tagName).toBe('BUTTON');
+  test('Render car model RS 2022', () => {
+    expect(screen.getByText('RS 2022')).toBeInTheDocument();
+  });
+  test('Render car model SV 2020', () => {
+    expect(screen.getByText('SV 2020')).toBeInTheDocument();
   });
 });
