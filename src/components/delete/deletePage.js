@@ -37,6 +37,7 @@ const DeletePage = () => {
 
   return (
     <div className={style.tableContainer}>
+      <h1>Delete Cars</h1>
       <table>
         <tbody>
           {carRecords.map((record) => (

@@ -21,21 +21,48 @@ td {
 .removeButton {
   background-color: var(--dark-gray);
   color: white;
-  border: none;
+  border: solid 1px var(--dark-gray);
 }
 
 .restoreButton {
   background-color: var(--apple-green);
   color: white;
-  border: none;
+  border: solid 1px var(--apple-green);
 }
 
 .removeButton:hover {
-  color: skyblue;
+  color: var(--dark-gray);
   cursor: pointer;
+  background: none;
 }
 
 .restoreButton:hover {
-  color: skyblue;
+  color: var(--apple-green);
   cursor: pointer;
+  background: none;
+}
+
+
+@media screen and (min-width: 530px) {
+  td {
+    padding: 5px;
+    font-size: 18px;
+  }
+
+  .removeButton,
+  .restoreButton {
+    font-size: 12px;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  td {
+    padding: 15px;
+    font-size: 24px;
+  }
+
+  .removeButton,
+  .restoreButton {
+    font-size: 24px;
+  }
 }
