@@ -13,6 +13,11 @@ td {
   font-size: 24px;
 }
 
+.removeButton,
+.restoreButton {
+  border-radius: 5px;
+}
+
 .removeButton {
   background-color: var(--dark-gray);
   color: white;

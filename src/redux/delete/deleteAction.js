@@ -10,6 +10,7 @@ const requestURL = 'http://localhost:4000/api/v1/cars/';
 
 export const getCarDeleteDetails = () => async (dispatch) => {
   const carsIdArr = [];
+  let sortedCarIds = [];
   const carsArr = [];
   await axios.get(requestURL).then((response) => {
     const responseData = response.data;
@@ -19,9 +20,10 @@ export const getCarDeleteDetails = () => async (dispatch) => {
         const carId = obj.id;
         carsIdArr.push(carId);
       });
+      sortedCarIds = carsIdArr.sort((a, b) => a - b);
     }
   });
-  await Promise.all(carsIdArr.map((id) => axios.get(`${requestURL}${id}`).then((response) => {
+  await Promise.all(sortedCarIds.map((id) => axios.get(`${requestURL}${id}`).then((response) => {
     const responseData = response.data;
     if (responseData) {
       const car = responseData.data;
