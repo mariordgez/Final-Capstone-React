@@ -6,7 +6,7 @@ const RESTORE_REMOVED_CAR = 'car/RESTORE_REMOVED_CAR';
 
 const initialState = [];
 
-const requestURL = 'http://localhost:4000/api/v1/cars/';
+const requestURL = `${process.env.REACT_APP_API_PATH}cars/`;
 
 export const getCarDeleteDetails = () => async (dispatch) => {
   const carsIdArr = [];
@@ -23,13 +23,15 @@ export const getCarDeleteDetails = () => async (dispatch) => {
       sortedCarIds = carsIdArr.sort((a, b) => a - b);
     }
   });
-  await Promise.all(sortedCarIds.map((id) => axios.get(`${requestURL}${id}`).then((response) => {
-    const responseData = response.data;
-    if (responseData) {
-      const car = responseData.data;
-      carsArr.push(car);
-    }
-  })));
+  await Promise.all(
+    sortedCarIds.map((id) => axios.get(`${requestURL}${id}`).then((response) => {
+      const responseData = response.data;
+      if (responseData) {
+        const car = responseData.data;
+        carsArr.push(car);
+      }
+    })),
+  );
   dispatch({
     type: GET_CARS_REMOVE_FLAGS,
     payload: carsArr,

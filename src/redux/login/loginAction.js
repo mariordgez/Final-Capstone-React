@@ -9,7 +9,7 @@ const initialState = {
   userId: null,
 };
 
-const requestURL = 'http://localhost:4000/api/v1/users';
+const requestURL = `${process.env.REACT_APP_API_PATH}users`;
 
 export const verifyCredentials = (username) => async (dispatch) => {
   const userObj = initialState;
