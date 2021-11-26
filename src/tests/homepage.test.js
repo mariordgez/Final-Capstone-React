@@ -21,7 +21,7 @@ const initialState = {
   addNewCarForm: {
     open: false,
     formDelay: true,
-  }
+  },
 };
 const mockStore = configureStore(middlewares);
 let store;
