@@ -28,10 +28,8 @@ export const fetchReservationList = () => async (dispatch) => {
   });
 };
 
-const postURL = 'http://localhost:4000/api/v1/reservations/add';
-
 export const updateFetchReservationList = (body) => async (dispatch) => {
-  await axios.post(postURL, body).then((response) => {
+  await axios.post(`${process.env.REACT_APP_API_PATH}reservations/add`, body).then((response) => {
     const responseData = response.data;
     dispatch({
       type: UPDATE_FETCH_RESERVATION_LIST,
