@@ -40,7 +40,7 @@ const Navbar = (props) => {
               <li className="px-1 nav-item w-100 hoverli">
                 <NavLink
                   to="/"
-                  className={(isActive) => `hoverlink  align-middle px-0${!isActive ? ' selected' : ''}`}
+                  className="hoverlink  align-middle px-0"
                 >
                   <FontAwesomeIcon icon={faHome} />
                   <span className="ms-1 d-none d-sm-inline">Home</span>
@@ -49,7 +49,7 @@ const Navbar = (props) => {
               <li className="px-1 nav-item w-100 hoverli">
                 <NavLink
                   to="/reservations"
-                  className={(isActive) => `hoverlink  align-middle px-0${!isActive ? ' selected' : ''}`}
+                  className="hoverlink  align-middle px-0"
                 >
                   <FontAwesomeIcon icon={faCalendarCheck} />
                   <span className="ms-1 d-none d-sm-inline">Reservations</span>
@@ -58,7 +58,7 @@ const Navbar = (props) => {
               <li className="px-1 nav-item w-100 hoverli">
                 <NavLink
                   to="/myReservations"
-                  className={(isActive) => `hoverlink  align-middle px-0${!isActive ? ' selected' : ''}`}
+                  className="hoverlink  align-middle px-0"
                 >
                   <FontAwesomeIcon icon={faClipboard} />
                   <span className="ms-1 d-none d-sm-inline">My Reservations</span>
@@ -68,7 +68,7 @@ const Navbar = (props) => {
                 <NavLink
                   to="/"
                   onClick={openFormHandle}
-                  className={(isActive) => `hoverlink  align-middle px-0${!isActive ? ' selected' : ''}`}
+                  className="hoverlink  align-middle px-0"
                 >
                   <FontAwesomeIcon icon={faCar} />
                   <span className="ms-1 d-none d-sm-inline">Add new car</span>
@@ -77,7 +77,7 @@ const Navbar = (props) => {
               <li className="px-1 nav-item w-100 hoverli">
                 <NavLink
                   to="/detail/cars/delete"
-                  className={(isActive) => `hoverlink  align-middle px-0 ${!isActive ? ' selected' : ''}`}
+                  className="hoverlink  align-middle px-0"
                 >
                   <FontAwesomeIcon icon={faTrashAlt} />
                   <span className="ms-1 d-none d-sm-inline">Delete</span>
@@ -86,7 +86,7 @@ const Navbar = (props) => {
               <li className="px-1 nav-item w-100 hoverli">
                 <NavLink
                   to="/"
-                  className={(isActive) => `hoverlink  align-middle px-0 ${!isActive ? ' selected' : ''}`}
+                  className="hoverlink  align-middle px-0"
                 >
                   <FontAwesomeIcon icon={faSignOutAlt} />
                   <span className="ms-1 d-none d-sm-inline">Sign Out</span>
