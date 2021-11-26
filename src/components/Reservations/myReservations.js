@@ -29,43 +29,42 @@ const MyReservation = () => {
           {userName}
           !, here you can see your scheduled reservations:
         </Card.Title>
-        <Card.Text className="py-5">
-          <Container>
-            <Table className="bg-white" striped bordered hover>
-              <thead>
-                <tr>
-                  <th>Date</th>
-                  <th>City</th>
-                  <th>Car</th>
-                </tr>
-              </thead>
-              <tbody>
-                {reservations
-                  .filter((reservation) => reservation.user_id === userId)
-                  .map((reservation) => cars
-                    .filter((car) => car.id === reservation.car_id)
-                    .map((filteredcar) => (
-                      <tr key={filteredcar.id}>
-                        <td>
-                          {' '}
-                          {reservation.date}
-                          {' '}
-                        </td>
-                        <td>
-                          {' '}
-                          {reservation.city}
-                        </td>
-                        <td>
-                          {filteredcar.brand}
-                          {' '}
-                          {filteredcar.name}
-                        </td>
-                      </tr>
-                    )))}
-              </tbody>
-            </Table>
-          </Container>
-        </Card.Text>
+        <Container className="py-5">
+          <Table className="bg-white" striped bordered hover>
+            <thead>
+              <tr>
+                <th>Date</th>
+                <th>City</th>
+                <th>Car</th>
+              </tr>
+            </thead>
+            <tbody>
+              {reservations
+                .filter((reservation) => reservation.user_id === userId)
+                .map((reservation) => cars
+                  .filter((car) => car.id === reservation.car_id)
+                  .map((filteredcar) => (
+                    <tr key={filteredcar.id}>
+                      <td>
+                        {' '}
+                        {reservation.date}
+                        {' '}
+                      </td>
+                      <td>
+                        {' '}
+                        {reservation.city}
+                      </td>
+                      <td>
+                        {filteredcar.brand}
+                        {' '}
+                        {filteredcar.name}
+                      </td>
+                    </tr>
+                  )))}
+            </tbody>
+          </Table>
+        </Container>
+
       </Card.ImgOverlay>
     </Card>
   );

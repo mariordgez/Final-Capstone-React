@@ -22,14 +22,14 @@ function App() {
 
   return (
     <Router>
-      <main style={{ display: 'flex' }}>
+      <main>
         <Routes>
           {authDetails.authenticated ? (
-            <Route exact="true" path="/" element={<Navbar Page={HomePage} />} />
+            <Route path="/" exact element={<Navbar Page={HomePage} />} />
           ) : (
             <Route
-              exact="true"
               path="/"
+              exact
               element={(
                 <LoginForm
                   submitCredentialsFunc={submitCredentials}
@@ -38,18 +38,9 @@ function App() {
               )}
             />
           )}
-          <Route
-            path="/detail/cars/:carId"
-            element={<Navbar Page={Detail} />}
-          />
-          <Route
-            path="/reservations"
-            element={<Navbar Page={Reservations} />}
-          />
-          <Route
-            path="/myReservations"
-            element={<Navbar Page={MyReservations} />}
-          />
+          <Route path="/detail/cars/:carId" element={<Navbar Page={Detail} />} />
+          <Route path="/reservations" element={<Navbar Page={Reservations} />} />
+          <Route path="/myReservations" element={<Navbar Page={MyReservations} />} />
           <Route path="/addCar" element={<Navbar Page={AddNewCar} />} />
           <Route path="/detail/cars/delete" element={<Navbar Page={DeletePage} />} />
         </Routes>
