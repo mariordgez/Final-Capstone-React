@@ -1,11 +1,17 @@
 .hoverli:hover {
   background-color: #98bf11;
+  border-radius: 5px 0 0 5px;
   color: white;
 }
 
 .selected {
   background-color: #98bf11;
   color: white;
+}
+
+.icon-mx {
+  margin-left: 3px;
+  margin-right: 3px;
 }
 
 .hoverlink {
@@ -34,6 +40,7 @@
 .nav-linke {
   background: none;
   border: 0;
+  border-radius: 5px 0 0 5px;
 }
 .nav-linke.active,
 .show > .nav-linke {

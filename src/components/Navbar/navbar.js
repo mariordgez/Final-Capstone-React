@@ -42,7 +42,7 @@ const Navbar = (props) => {
                   to="/"
                   className="w-100 nav-linke hoverlink  align-middle px-0"
                 >
-                  <FontAwesomeIcon icon={faHome} />
+                  <FontAwesomeIcon className="icon-mx" icon={faHome} />
                   <span className="ms-1 d-none d-sm-inline">Home</span>
                 </NavLink>
               </li>
@@ -51,7 +51,7 @@ const Navbar = (props) => {
                   to="/reservations"
                   className="w-100 nav-linke hoverlink  align-middle px-0"
                 >
-                  <FontAwesomeIcon icon={faCalendarCheck} />
+                  <FontAwesomeIcon className="icon-mx" icon={faCalendarCheck} />
                   <span className="ms-1 d-none d-sm-inline">Reservations</span>
                 </NavLink>
               </li>
@@ -60,17 +60,17 @@ const Navbar = (props) => {
                   to="/myReservations"
                   className="w-100 nav-linke hoverlink  align-middle px-0"
                 >
-                  <FontAwesomeIcon icon={faClipboard} />
+                  <FontAwesomeIcon className="icon-mx" icon={faClipboard} />
                   <span className="ms-1 d-none d-sm-inline">My Reservations</span>
                 </NavLink>
               </li>
-              <li className="px-1 nav-item w-100 hoverli">
+              <li className="px-0 nav-item w-100 hoverli">
                 <NavLink
                   to="/"
                   onClick={openFormHandle}
                   className="hoverlink  align-middle px-0"
                 >
-                  <FontAwesomeIcon icon={faCar} />
+                  <FontAwesomeIcon className="icon-mx" icon={faCar} />
                   <span className="ms-1 d-none d-sm-inline">Add new car</span>
                 </NavLink>
               </li>
@@ -79,16 +79,16 @@ const Navbar = (props) => {
                   to="/detail/cars/delete"
                   className="w-100 nav-linke hoverlink  align-middle px-0"
                 >
-                  <FontAwesomeIcon icon={faTrashAlt} />
+                  <FontAwesomeIcon className="icon-mx" icon={faTrashAlt} />
                   <span className="ms-1 d-none d-sm-inline">Delete</span>
                 </NavLink>
               </li>
-              <li className="px-1 nav-item w-100 hoverli">
+              <li className="px-0 nav-item w-100 hoverli">
                 <NavLink
-                  to="/"
-                  className={(isActive) => `hoverlink  align-middle px-0 ${!isActive ? ' selected' : ''}`}
+                  to="#"
+                  className="w-100 hoverlink  align-middle px-0"
                 >
-                  <FontAwesomeIcon icon={faSignOutAlt} />
+                  <FontAwesomeIcon className="icon-mx" icon={faSignOutAlt} />
                   <span className="ms-1 d-none d-sm-inline">Sign Out</span>
                 </NavLink>
               </li>
