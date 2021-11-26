@@ -42,22 +42,6 @@ const initialState = {
       },
     ],
   },
-  detailState: {
-    detail: {
-      data: {
-        id: 1,
-        name: 'Sentra test',
-        model: 'SV 2020 test',
-        brand: 'Nissan test',
-        price: '20270.0',
-        image_url:
-          'https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/2020-nissan-sentra-120-1574102513.jpg',
-        removed: false,
-        created_at: '2021-11-17T14:53:47.806Z',
-        updated_at: '2021-11-17T14:53:47.806Z',
-      },
-    },
-  },
 };
 const mockStore = configureStore(middlewares);
 let store;
