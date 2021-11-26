@@ -38,9 +38,18 @@ function App() {
               )}
             />
           )}
-          <Route path="/detail/cars/:carid" element={<Navbar Page={Detail} />} />
-          <Route path="/reservations" element={<Navbar Page={Reservations} />} />
-          <Route path="/myReservations" element={<Navbar Page={MyReservations} />} />
+          <Route
+            path="/detail/cars/:carId"
+            element={<Navbar Page={Detail} />}
+          />
+          <Route
+            path="/reservations"
+            element={<Navbar Page={Reservations} />}
+          />
+          <Route
+            path="/myReservations"
+            element={<Navbar Page={MyReservations} />}
+          />
           <Route path="/addCar" element={<Navbar Page={AddNewCar} />} />
           <Route path="/detail/cars/delete" element={<Navbar Page={DeletePage} />} />
         </Routes>
